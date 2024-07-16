@@ -18,12 +18,11 @@ export default function App() {
           <p>Настройки</p>
         </div>
         <Swiper
-          slidesPerView={5.4}
+          slidesPerView={7.2}
           centeredSlides={false}
           spaceBetween={30}
           navigation={true}
           modules={[Pagination, Navigation]}
-          className="mySwiper"
         >
           <SwiperSlide className={styles.addHistory}>
             <Slide
