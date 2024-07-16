@@ -17,7 +17,6 @@ const HeaderMobile = () => {
   const handleScroll = () => {
     const currentScrollPos = window.pageYOffset;
     const visible = prevScrollPos > currentScrollPos || currentScrollPos < 130;
-
     setPrevScrollPos(currentScrollPos);
     setVisible(visible);
   };
