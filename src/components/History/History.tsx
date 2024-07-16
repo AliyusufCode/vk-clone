@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { historySlide } from "../../assets/historyList";
 import Slide from "./Slide";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,6 +11,24 @@ import styles from "./History.module.scss";
 import { Pagination, Navigation } from "swiper/modules";
 
 export default function App() {
+  const [isWideScreen, setIsWideScreen] = useState(false);
+  const [slidesPerView, setSlidesPerView] = useState(7.2);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsWideScreen(window.innerWidth > 520);
+      setSlidesPerView(window.innerWidth > 520 ? 5.5 : 7.2);
+    };
+
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <>
       <div className={styles.container}>
@@ -18,10 +37,10 @@ export default function App() {
           <p>Настройки</p>
         </div>
         <Swiper
-          slidesPerView={7.2}
+          slidesPerView={slidesPerView}
           centeredSlides={false}
           spaceBetween={30}
-          navigation={true}
+          navigation={isWideScreen}
           modules={[Pagination, Navigation]}
         >
           <SwiperSlide className={styles.addHistory}>
