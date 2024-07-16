@@ -8,8 +8,8 @@ import Sidebar from "./components/Sidebar/Sidebar";
 function App() {
   return (
     <div>
-      <Header />
-      <HeaderMobile />
+      {/* <Header />
+      <HeaderMobile /> */}
       <div className="app">
         <Sidebar />
         <div className="content">

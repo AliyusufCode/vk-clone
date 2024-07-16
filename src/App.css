@@ -45,7 +45,7 @@
   height: fit-content;
   min-width: fit-content;
   margin-top: 12px;
-  padding: 10px 0;
+  /* padding: 10px 0; */
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
@@ -67,4 +67,6 @@
   .addHistory {
     display: none !important;
   }
+}
+@media (max-width: 520px) {
 }

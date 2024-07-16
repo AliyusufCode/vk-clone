@@ -6,8 +6,8 @@ import styles from "./Home.module.scss";
 const Home = () => {
   return (
     <div className={styles.container}>
-      <AddPost />
-      <History />
+      {/* <AddPost />
+      <History /> */}
       {posts.map((el: PostsProps) => (
         <Posts
           key={el.id}
