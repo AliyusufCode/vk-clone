@@ -1,0 +1,26 @@
+.player {
+  display: flex;
+  align-items: center;
+  position: relative;
+  color: gray;
+  font-size: 20px;
+  padding: 13px 15px;
+  user-select: none;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(54, 52, 52);
+  }
+  .icon {
+    margin-right: 10px;
+  }
+  span {
+    font-size: 18px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+}
+@media (max-width: 881px) {
+  .player {
+    display: none;
+  }
+}

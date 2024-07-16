@@ -1,0 +1,26 @@
+.searchContainer {
+  position: relative;
+  .icon {
+    position: absolute;
+    top: 55%;
+    font-size: 20px;
+    transform: translateY(-50%);
+    color: gray;
+    left: 40px; /* Располагаем иконку слева от текстового поля */
+  }
+
+  .input {
+    width: 190px;
+    height: 30px;
+    border-radius: 8px;
+    margin-left: 30px;
+    outline: none;
+    border: none;
+    background: rgb(69, 67, 67);
+    padding-left: 35px;
+    font-size: 15px;
+    &:hover {
+      background: rgb(85, 84, 84);
+    }
+  }
+}
