@@ -106,7 +106,8 @@
       align-items: center;
       color: gray;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin-right: -215px !important;
+      margin-right: -215px;
+      margin: 0;
       .iconView {
         width: 15px;
         height: 15px;
@@ -196,6 +197,21 @@
     }
     .addComment {
       display: none;
+    }
+    .view {
+      // display: flex;
+      // align-items: center;
+      // color: gray;
+      // font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin-right: -25px !important;
+      .iconView {
+        width: 15px;
+        height: 15px;
+      }
+      span {
+        font-size: 13px;
+        margin-left: 5px;
+      }
     }
   }
 }
