@@ -7,12 +7,13 @@ const Footer = () => {
   return (
     <div className={styles.container}>
       {footerList.map((el: any, i) => (
-        <div className={styles.content} key={el.link}>
+        <div
+          className={styles.content}
+          key={el.link}
+          onClick={() => setActive(i)}
+        >
           <el.icon className={i === active ? styles.iconActive : styles.icon} />
-          <p
-            onClick={() => setActive(i)}
-            className={i === active ? styles.titleActive : styles.title}
-          >
+          <p className={i === active ? styles.titleActive : styles.title}>
             {el.title}
           </p>
         </div>
