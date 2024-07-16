@@ -17,7 +17,7 @@ export default function App() {
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth > 520);
-      setSlidesPerView(window.innerWidth > 520 ? 5.5 : 7.2);
+      setSlidesPerView(window.innerWidth > 520 ? 5.5 : 6.2);
     };
 
     handleResize();
@@ -39,7 +39,7 @@ export default function App() {
         <Swiper
           slidesPerView={slidesPerView}
           centeredSlides={false}
-          spaceBetween={30}
+          spaceBetween={50}
           navigation={isWideScreen}
           modules={[Pagination, Navigation]}
         >

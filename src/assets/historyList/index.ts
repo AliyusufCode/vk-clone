@@ -1,5 +1,10 @@
 export const historySlide = [
   {
+    img: "/addHistory.png",
+    title: "История",
+    prev: "image.png",
+  },
+  {
     img: "https://i.pinimg.com/originals/4c/e7/ff/4ce7ff1d725f2792c06a79b2bc0e9675.jpg",
     title: "Анастасия",
     prev: "https://i.pinimg.com/originals/ba/db/a2/badba2a36adff22c33b21e6a6030648b.jpg",
