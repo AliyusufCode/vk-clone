@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 const HeaderMobile = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-
+  const [active, setActive] = useState(0);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -22,16 +22,29 @@ const HeaderMobile = () => {
   };
 
   const headerStyle = {
-    top: visible ? "0" : "-90px",
+    top: visible ? "0" : "-120px",
     transition: "top 0.3s",
   };
-
+  const listHeader = ["Новости", "Для вас"];
   return (
     <div className={styles.container} style={headerStyle}>
-      <span>Главная</span>
-      <div className={styles.icons}>
-        <CgSearch className={styles.icon} />
-        <HiOutlinePlusCircle className={styles.iconLast} />
+      <div className={styles.head}>
+        <span>Главная</span>
+        <div className={styles.icons}>
+          <CgSearch className={styles.icon} />
+          <HiOutlinePlusCircle className={styles.iconLast} />
+        </div>
+      </div>
+      <div className={styles.bottom}>
+        {listHeader.map((el: string, i) => (
+          <span
+            className={i === active ? styles.active : ""}
+            key={el}
+            onClick={() => setActive(i)}
+          >
+            {el}
+          </span>
+        ))}
       </div>
     </div>
   );

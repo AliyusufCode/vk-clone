@@ -43,14 +43,6 @@ export default function App() {
           navigation={isWideScreen}
           modules={[Pagination, Navigation]}
         >
-          <SwiperSlide className={styles.addHistory}>
-            <Slide
-              img={"/addHistory.png"}
-              prev={"image.png"}
-              title={"История"}
-              className="addHistory"
-            />
-          </SwiperSlide>
           {historySlide.map((el) => (
             <SwiperSlide key={el.img}>
               <Slide img={el.img} prev={el.prev} title={el.title} />
