@@ -10,6 +10,6 @@ body {
 }
 @media (max-width: 520px) {
   body {
-    background-color: rgba(0, 0, 0, 0);
+    background: black !important;
   }
 }
