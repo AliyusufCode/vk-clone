@@ -1,6 +1,6 @@
 import { posts } from "../../assets/Posts/posts";
-import AddPost from "../AddPost/AddPost";
-import History from "../History/History";
+// import AddPost from "../AddPost/AddPost";
+// import History from "../History/History";
 import Posts, { PostsProps } from "../Posts/Posts";
 import styles from "./Home.module.scss";
 const Home = () => {
