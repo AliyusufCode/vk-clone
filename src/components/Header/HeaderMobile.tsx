@@ -43,7 +43,7 @@ const HeaderMobile = () => {
           )}
         </div>
       </div>
-      {path === "/" && (
+      {/* {path === "/" && (
         <div className={styles.bottom}>
           {listHeader.map((el: string, i) => (
             <span
@@ -55,7 +55,7 @@ const HeaderMobile = () => {
             </span>
           ))}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
