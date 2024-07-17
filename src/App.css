@@ -59,13 +59,18 @@
 }
 @media (max-width: 520px) {
   .swiper {
-    width: 435px;
     height: 120px !important;
-    max-width: 400px;
+    max-width: 420px;
+    width: 100%;
   }
   .addHistory {
     display: none !important;
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 420px) {
+  .swiper {
+    height: 120px !important;
+    max-width: 380px;
+    margin-left: 0 !important;
+  }
 }

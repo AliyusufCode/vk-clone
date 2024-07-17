@@ -39,7 +39,7 @@ export default function App() {
         <Swiper
           slidesPerView={slidesPerView}
           centeredSlides={false}
-          spaceBetween={50}
+          spaceBetween={window.innerWidth < 420 ? 70 : 50}
           navigation={isWideScreen}
           modules={[Pagination, Navigation]}
         >
