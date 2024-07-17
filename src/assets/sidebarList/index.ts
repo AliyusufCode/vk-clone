@@ -46,3 +46,19 @@ export const list = [
   { title: "Реклама", icon: HiSpeakerphone, link: "/rek" },
   { title: "Помощь", icon: IoMdHelpCircleOutline, link: "/help" },
 ];
+export const mobileList = [
+  { title: "Друзья", icon: FaUserFriends, link: "/friends" },
+  { title: "Сообщества", icon: FaPeopleGroup, link: "/groups" },
+  { title: "Клипы", icon: HiOutlineVideoCamera, link: "/clip" },
+  { title: "Музыка", icon: CiMusicNote1, link: "/audio" },
+  { title: "Игры", icon: CgGames, link: "/games" },
+  {
+    title: "Фотографии",
+    icon: MdOutlinePhotoSizeSelectActual,
+    link: "/photos",
+  },
+  { title: "Сервисы", icon: GrServices, link: "/services" },
+  { title: "Маркет", icon: SiGooglemarketingplatform, link: "/market" },
+  { title: "VK Pay", icon: FaRubleSign, link: "/vkpay" },
+  { title: "Помощь", icon: IoMdHelpCircleOutline, link: "/help" },
+];
