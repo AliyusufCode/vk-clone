@@ -70,6 +70,25 @@
     }
   }
 }
+.services {
+  display: flex;
+  align-items: center;
+}
+.head {
+  height: 40px;
+  width: 100%;
+  background: rgb(32, 31, 33) !important;
+  position: fixed;
+  align-items: center;
+  margin: 0 auto;
+  padding-top: 13px;
+  z-index: 1772;
+}
+.link {
+  display: flex;
+  align-items: center;
+  color: rgb(222, 222, 222);
+}
 .header {
   display: flex;
   align-items: center;

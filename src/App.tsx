@@ -1,3 +1,4 @@
+import { Route, Routes } from "react-router";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -6,6 +7,9 @@ import Home from "./components/Home/Home";
 import InterestingNews from "./components/InterestingNews/InterestingNews";
 import MenuNavigate from "./components/MenuNavigate/MenuNavigate";
 import Sidebar from "./components/Sidebar/Sidebar";
+
+import Services from "./components/Services/Services";
+
 function App() {
   return (
     <div>
@@ -14,11 +18,21 @@ function App() {
       <div className="app">
         <Sidebar />
         <div className="content">
-          <Home />
-          <div className="left-sidebar">
-            <MenuNavigate />
-            <InterestingNews />
-          </div>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Home />
+                  <div className="left-sidebar">
+                    <MenuNavigate />
+                    <InterestingNews />
+                  </div>
+                </>
+              }
+            />
+            <Route path="/services" element={<Services />} />
+          </Routes>
         </div>
       </div>
       <Footer />

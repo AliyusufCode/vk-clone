@@ -12,7 +12,7 @@ import { LuSticker } from "react-icons/lu";
 import { SiGooglemarketingplatform } from "react-icons/si";
 export const categoryList = [
   { title: "Моя Страница", icon: FaRegUserCircle, link: "/me" },
-  { title: "Новости", icon: LuNewspaper, link: "/news" },
+  { title: "Новости", icon: LuNewspaper, link: "/" },
   { title: "Мессенджер", icon: LuMessageCircle, link: "/im" },
   { title: "Звонки", icon: FiPhone, link: "/calls" },
   { title: "Друзья", icon: FaUserFriends, link: "/friends" },

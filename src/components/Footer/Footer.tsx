@@ -1,21 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { footerList } from "../../assets/Footer/footerList";
 import styles from "./Footer.module.scss";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+type PropsFooter = {
+  title: string;
+  link: string;
+  icon: any;
+};
 
 const Footer = () => {
-  const [active, setActive] = useState(0);
+  const location = useLocation();
+  const path = location.pathname;
+  const [active, setActive] = useState(path);
+  useEffect(() => {
+    setActive(path);
+  }, [path]);
   return (
     <div className={styles.container}>
-      {footerList.map((el: any, i) => (
+      {footerList.map((el: PropsFooter) => (
         <div
           className={styles.content}
           key={el.link}
-          onClick={() => setActive(i)}
+          onClick={() => setActive(path)}
         >
-          <el.icon className={i === active ? styles.iconActive : styles.icon} />
-          <p className={i === active ? styles.titleActive : styles.title}>
-            {el.title}
-          </p>
+          <Link to={el.link}>
+            <el.icon
+              className={el.link === active ? styles.iconActive : styles.icon}
+            />
+            <p
+              className={el.link === active ? styles.titleActive : styles.title}
+            >
+              {el.title}
+            </p>
+          </Link>
         </div>
       ))}
     </div>
