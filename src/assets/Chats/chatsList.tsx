@@ -12,10 +12,28 @@ export const chatsList = [
     lastMessage: "Хорошо.",
   },
   {
+    name: "Юрий Павлов",
+    avatar:
+      "https://i.pinimg.com/564x/37/b0/92/37b092f59895ec38d50dfca91e053938.jpg",
+    lastMessage: "скоро буду",
+  },
+  {
     name: "ВКонтакте",
     avatar:
       "https://i.pinimg.com/564x/e9/1a/69/e91a695d2def28f83a60b31e9c66a4e0.jpg",
     lastMessage: "Спасибо большое за помощь",
+  },
+  {
+    name: "Андрей Высоцкий",
+    avatar:
+      "https://i.pinimg.com/564x/71/dc/a8/71dca8998e70d530b029ee8dde846e19.jpg",
+    lastMessage: "Давай)",
+  },
+  {
+    name: "Илон Маск",
+    avatar:
+      "https://i.pinimg.com/564x/c8/f1/93/c8f193b167906883d8a5ec469680d942.jpg",
+    lastMessage: "Крутой хаха:))",
   },
   {
     name: "Инвестиции",

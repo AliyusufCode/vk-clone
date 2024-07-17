@@ -14,7 +14,11 @@ const Chats = () => {
           <img src={el.avatar} alt="img" />
           <div className={styles.infoChat}>
             <span className={styles.name}>{el.name}</span>
-            <span className={styles.msg}>{el.lastMessage}</span>
+            <span className={styles.msg}>
+              {el.lastMessage.length > 7
+                ? `${el.lastMessage.slice(0, 35)}...`
+                : el.lastMessage}
+            </span>
           </div>
         </div>
       ))}
