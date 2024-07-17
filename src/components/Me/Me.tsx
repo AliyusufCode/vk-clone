@@ -1,4 +1,4 @@
-import { categoryList, mobileList } from "../../assets/sidebarList";
+import { mobileList } from "../../assets/sidebarList";
 import styles from "./Me.module.scss";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 type MeProps = {
