@@ -11,7 +11,7 @@ export const servicesList = [
     title: "Друзья",
     color: "orange",
     icon: FaUserFriends,
-    link: "/frends",
+    link: "/friends",
     id: 1,
   },
   {

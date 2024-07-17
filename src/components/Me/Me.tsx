@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { mobileList } from "../../assets/sidebarList";
 import styles from "./Me.module.scss";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
@@ -22,10 +23,12 @@ const Me = () => {
         </div>
         <div className={styles.lists}>
           {mobileList.map((el: MeProps) => (
-            <div className={styles.content}>
-              <el.icon className={styles.icon} />
-              <p>{el.title}</p>
-            </div>
+            <Link to={el.link} className={styles.link}>
+              <div className={styles.content}>
+                <el.icon className={styles.icon} />
+                <p>{el.title}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>

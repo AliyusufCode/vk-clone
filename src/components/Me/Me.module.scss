@@ -57,6 +57,7 @@
     padding: 10px;
     display: flex;
     align-items: center;
+
     .icon {
       font-size: 23px;
       margin-right: 12px;
@@ -67,4 +68,7 @@
       margin: 0;
     }
   }
+}
+.link {
+  color: white;
 }

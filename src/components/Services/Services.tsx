@@ -4,6 +4,7 @@ import {
 } from "../../assets/Services/servicesList";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./Services.module.scss";
+import { Link } from "react-router-dom";
 type ServicesType = {
   title: string;
   icon: any;
@@ -16,10 +17,12 @@ const Services = () => {
     <div className={styles.container}>
       <div className={styles.services}>
         {servicesList.map((el: ServicesType) => (
-          <span className={styles.layoutServices}>
-            <el.icon className={styles.icon} color={el.color} />
-            <p>{el.title}</p>
-          </span>
+          <Link to={el.link}>
+            <span className={styles.layoutServices}>
+              <el.icon className={styles.icon} color={el.color} />
+              <p>{el.title}</p>
+            </span>
+          </Link>
         ))}
       </div>
       <div className={styles.recommend}>
