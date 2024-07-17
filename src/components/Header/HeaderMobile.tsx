@@ -36,7 +36,7 @@ const HeaderMobile = () => {
         {path === "/services" ? <span>Сервисы</span> : null}
         {path === "/im" ? <span>Чаты</span> : null}
         {path === "/notifications" ? <span>Уведомления</span> : null}
-        {path === "/me" ? <span>Профиль</span> : null}
+        {path === "/me" ? <span>Ещё</span> : null}
 
         <div className={styles.icons}>
           <CgSearch className={styles.icon} />

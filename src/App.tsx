@@ -11,6 +11,7 @@ import Sidebar from "./components/Sidebar/Sidebar";
 import Services from "./components/Services/Services";
 import Chats from "./components/Chats/Chats";
 import Notifications from "./components/Notifications/Notifications";
+import Me from "./components/Me/Me";
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/services" element={<Services />} />
             <Route path="/im" element={<Chats />} />
             <Route path="/notifications" element={<Notifications />} />
+            <Route path="/me" element={<Me />} />
           </Routes>
         </div>
       </div>
