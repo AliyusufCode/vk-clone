@@ -9,7 +9,7 @@ const HeaderMobile = () => {
   const path = location.pathname;
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-  // const [active, setActive] = useState(0);
+  const [active, setActive] = useState(0);
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -28,7 +28,7 @@ const HeaderMobile = () => {
     top: visible ? "0" : "-120px",
     transition: "top 0.3s",
   };
-  // const listHeader = ["Новости", "Для вас"];
+  const listHeader = ["Новости", "Для вас"];
   return (
     <div className={styles.container} style={headerStyle}>
       <div className={styles.head}>
@@ -43,7 +43,7 @@ const HeaderMobile = () => {
           )}
         </div>
       </div>
-      {/* {path === "/" && (
+      {path === "/" && (
         <div className={styles.bottom}>
           {listHeader.map((el: string, i) => (
             <span
@@ -55,7 +55,7 @@ const HeaderMobile = () => {
             </span>
           ))}
         </div>
-      )} */}
+      )}
     </div>
   );
 };
