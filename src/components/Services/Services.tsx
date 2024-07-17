@@ -25,7 +25,7 @@ const Services = () => {
       <div className={styles.recommend}>
         <span className={styles.span}>Для вас</span>
         <Swiper
-          slidesPerView={6.2}
+          slidesPerView={5.2}
           centeredSlides={false}
           spaceBetween={10}
           className={styles.contentRecommend}
