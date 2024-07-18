@@ -103,7 +103,14 @@
   opacity: 1;
   animation: slideIn 0.3s ease-in-out;
 }
-
+.iconBack {
+  position: relative;
+  width: 33px;
+  height: 33px;
+  margin-right: 20px;
+  margin-top: 3px;
+  color: white;
+}
 @keyframes slideIn {
   from {
     right: -24vh;
@@ -113,6 +120,9 @@
     right: -24vh;
     opacity: 1;
   }
+}
+.back {
+  z-index: 3333333333333333;
 }
 @media (min-width: 520px) {
   .container {

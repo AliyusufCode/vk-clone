@@ -14,6 +14,7 @@ import Notifications from "./components/Notifications/Notifications";
 import Me from "./components/Me/Me";
 import Friends from "./components/Frends/Frends";
 import Groups from "./components/Groups/Groups";
+import Empty from "./components/Empty/Empty";
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path="/me" element={<Me />} />
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />
+            <Route path="/clip" element={<Empty />} />
           </Routes>
         </div>
       </div>

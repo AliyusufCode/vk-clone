@@ -52,17 +52,20 @@ const HeaderMobile = () => {
         {path === "/notifications" ? <span>Уведомления</span> : null}
         {path === "/me" ? <span>Ещё</span> : null}
         {path === "/friends" ? <span>Все друзья</span> : null}
+        {path === "/clip" ? <span>Клипы</span> : null}
 
         <div className={styles.icons}>
           {path === "/groups" ? null : <CgSearch className={styles.icon} />}
+          {/* {path === "/clip" ? null : <CgSearch className={styles.icon} />} */}
+
           {path === "/" ? (
             <HiOutlinePlusCircle className={styles.iconLast} />
           ) : path === "/groups" ? (
             <>
-              <GoArrowLeft
-                className={styles.icon}
-                onClick={() => navigate(-1)}
-              />
+              <span onClick={() => navigate(-1)} className={styles.back}>
+                <GoArrowLeft className={styles.iconBack} />
+              </span>
+
               <div className={styles.contentInput}>
                 <LiaSearchSolid className={styles.searchIcon} />
                 <input
