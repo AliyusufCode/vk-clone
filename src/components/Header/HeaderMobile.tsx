@@ -46,18 +46,18 @@ const HeaderMobile = () => {
   return (
     <div className={styles.container} style={headerStyle}>
       <div className={styles.head}>
-        {path === "/" ? <span>Главная</span> : null}
-        {path === "/services" ? <span>Сервисы</span> : null}
-        {path === "/im" ? <span>Чаты</span> : null}
-        {path === "/notifications" ? <span>Уведомления</span> : null}
-        {path === "/me" ? <span>Ещё</span> : null}
-        {path === "/friends" ? <span>Все друзья</span> : null}
-        {path === "/clip" ? <span>Клипы</span> : null}
+        {path === "/" && <span>Главная</span>}
+        {path === "/services" && <span>Сервисы</span>}
+        {path === "/im" && <span>Чаты</span>}
+        {path === "/notifications" && <span>Уведомления</span>}
+        {path === "/me" && <span>Ещё</span>}
+        {path === "/friends" && <span>Все друзья</span>}
+        {path === "/clip" && <span>Клипы</span>}
 
         <div className={styles.icons}>
-          {path === "/groups" ? null : <CgSearch className={styles.icon} />}
-          {/* {path === "/clip" ? null : <CgSearch className={styles.icon} />} */}
-
+          {path === "/groups" ? null : path === "/audio" ? null : (
+            <CgSearch className={styles.icon} />
+          )}
           {path === "/" ? (
             <HiOutlinePlusCircle className={styles.iconLast} />
           ) : path === "/groups" ? (
@@ -82,6 +82,11 @@ const HeaderMobile = () => {
                 )}
               </div>
             </>
+          ) : path === "/audio" ? (
+            <span onClick={() => navigate(-1)} className={styles.back}>
+              <GoArrowLeft className={styles.iconBack} />
+              <span> Мои треки</span>
+            </span>
           ) : (
             <RxHamburgerMenu className={styles.iconLast} />
           )}

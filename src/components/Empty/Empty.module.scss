@@ -5,5 +5,27 @@
   align-items: center;
   margin: 65px 10px;
   width: 95vw;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 500px;
+  span {
+    font-size: 30px;
+  }
+  .icon {
+    font-size: 40px;
+    color: yellow;
+  }
+  .backContent {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    color: gray;
+    .back {
+      margin-top: 2px;
+      font-size: 16px;
+    }
+    p {
+      font-size: 20px;
+      margin: 0;
+    }
+  }
 }
