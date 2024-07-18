@@ -3,9 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: auto;
   height: fit-content;
-  min-width: fit-content;
   margin-top: 12px;
   background: rgb(32, 31, 33);
   padding: 10px 0;
@@ -14,6 +12,9 @@
   padding-right: 10px;
   border-radius: 10px;
   margin-top: 375px;
+  width: 100vw;
+  max-width: 340px;
+
   .icon {
     color: red;
     margin: 0 3px;

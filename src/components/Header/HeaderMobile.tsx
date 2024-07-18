@@ -2,14 +2,28 @@ import styles from "./HeaderMobile.module.scss";
 import { HiOutlinePlusCircle } from "react-icons/hi2";
 import { CgSearch } from "react-icons/cg";
 import { useState, useEffect } from "react";
+import { IoMdClose } from "react-icons/io";
+import { LiaSearchSolid } from "react-icons/lia";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { GoArrowLeft } from "react-icons/go";
+
 const HeaderMobile = () => {
   const location = useLocation();
   const path = location.pathname;
   const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const navigate = useNavigate();
   const [visible, setVisible] = useState(true);
   const [active, setActive] = useState(0);
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event: any) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleClearInput = () => {
+    setInputValue("");
+  };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
@@ -40,9 +54,31 @@ const HeaderMobile = () => {
         {path === "/friends" ? <span>Все друзья</span> : null}
 
         <div className={styles.icons}>
-          <CgSearch className={styles.icon} />
+          {path === "/groups" ? null : <CgSearch className={styles.icon} />}
           {path === "/" ? (
             <HiOutlinePlusCircle className={styles.iconLast} />
+          ) : path === "/groups" ? (
+            <>
+              <GoArrowLeft
+                className={styles.icon}
+                onClick={() => navigate(-1)}
+              />
+              <div className={styles.contentInput}>
+                <LiaSearchSolid className={styles.searchIcon} />
+                <input
+                  type="text"
+                  placeholder="Поиск по сообществам"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                />
+                {inputValue && (
+                  <IoMdClose
+                    className={styles.clearIcon}
+                    onClick={handleClearInput}
+                  />
+                )}
+              </div>
+            </>
           ) : (
             <RxHamburgerMenu className={styles.iconLast} />
           )}
