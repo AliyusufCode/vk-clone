@@ -4,9 +4,9 @@ import { PiSquaresFourLight } from "react-icons/pi";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { FaRegBell } from "react-icons/fa";
 export const footerList = [
-  { title: "Главная", icon: GoHome, link: "/" },
-  { title: "Сервисы", icon: PiSquaresFourLight, link: "/services" },
-  { title: "Чаты", icon: LuMessageCircle, link: "/im" },
-  { title: "Уведомления", icon: FaRegBell, link: "/notifications" },
-  { title: "Ещё", icon: RxHamburgerMenu, link: "/me" },
+  { title: "Главная", icon: GoHome, link: "/", id: 1 },
+  { title: "Сервисы", icon: PiSquaresFourLight, link: "/services", id: 2 },
+  { title: "Чаты", icon: LuMessageCircle, link: "/im", id: 3 },
+  { title: "Уведомления", icon: FaRegBell, link: "/notifications", id: 4 },
+  { title: "Ещё", icon: RxHamburgerMenu, link: "/me", id: 5 },
 ];

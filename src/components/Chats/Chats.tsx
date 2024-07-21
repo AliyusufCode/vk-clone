@@ -5,12 +5,13 @@ type ChatsType = {
   name: string;
   avatar: string;
   lastMessage: string;
+  id: number;
 };
 const Chats = () => {
   return (
     <div className={styles.container}>
       {chatsList.map((el: ChatsType) => (
-        <div className={styles.сhats}>
+        <div className={styles.сhats} key={el.id}>
           <img src={el.avatar} alt="img" />
           <div className={styles.infoChat}>
             <span className={styles.name}>{el.name}</span>

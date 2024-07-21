@@ -53,6 +53,8 @@ const HeaderMobile = () => {
         {path === "/me" && <span>Ещё</span>}
         {path === "/clip" && <span>Клипы</span>}
         {path === "/games" && <span>Игры</span>}
+        {path === "/steps" && <span>Шаги</span>}
+        {path === "/acquaintance" && <span>Знакомства</span>}
         <div className={styles.icons}>
           {path === "/groups" && (
             <>

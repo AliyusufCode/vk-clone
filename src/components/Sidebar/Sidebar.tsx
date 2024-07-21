@@ -6,7 +6,7 @@ const Sidebar = () => {
   return (
     <div className={styles.container}>
       {categoryList.map((el) => (
-        <div key={el.link} className={styles.content}>
+        <div key={el.id} className={styles.content}>
           <Link to={el.link} className={styles.link}>
             <el.icon className={styles.icon} />
             <p>{el.title}</p>
@@ -15,7 +15,7 @@ const Sidebar = () => {
       ))}
       <div className={styles.line} />
       {category.map((el) => (
-        <div className={styles.content}>
+        <div className={styles.content} key={el.id}>
           <Link to={el.link} className={styles.link}>
             {el.icon && <el.icon key={el.link} className={styles.icon} />}
             <p>{el.title}</p>
@@ -24,7 +24,7 @@ const Sidebar = () => {
       ))}
       <div className={styles.line} />
       {list.map((el) => (
-        <div className={styles.content}>
+        <div className={styles.content} key={el.id}>
           <Link to={el.link} className={styles.link}>
             {el.icon && <el.icon key={el.link} className={styles.icon} />}
             <p>{el.title}</p>

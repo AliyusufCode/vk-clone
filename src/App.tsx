@@ -52,6 +52,8 @@ function App() {
             <Route path="/photos" element={<Photos />} />
             <Route path="/market" element={<Market />} />
             <Route path="/help" element={<Empty />} />
+            <Route path="/steps" element={<Empty />} />
+            <Route path="/acquaintance" element={<Empty />} />
           </Routes>
         </div>
       </div>

@@ -6,6 +6,7 @@ type MeProps = {
   title: string;
   icon: any;
   link: string;
+  id: number;
 };
 const Me = () => {
   return (
@@ -23,7 +24,7 @@ const Me = () => {
         </div>
         <div className={styles.lists}>
           {mobileList.map((el: MeProps) => (
-            <Link to={el.link} className={styles.link}>
+            <Link to={el.link} className={styles.link} key={el.id}>
               <div className={styles.content}>
                 <el.icon className={styles.icon} />
                 <p>{el.title}</p>

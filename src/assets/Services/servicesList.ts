@@ -2,10 +2,12 @@ import { FaUserFriends } from "react-icons/fa";
 import { FaPeopleGroup } from "react-icons/fa6";
 import { CiMusicNote1 } from "react-icons/ci";
 import { CgGames } from "react-icons/cg";
-import { SiGooglemarketingplatform } from "react-icons/si";
+import { IoBagOutline } from "react-icons/io5";
 import { LuSticker } from "react-icons/lu";
 import { IoFootstepsOutline } from "react-icons/io5";
 import { TbMailHeart } from "react-icons/tb";
+import { MdOutlinePhotoSizeSelectActual } from "react-icons/md";
+
 export const servicesList = [
   {
     title: "Друзья",
@@ -31,16 +33,16 @@ export const servicesList = [
   {
     title: "Маркет",
     color: "blue",
-    icon: SiGooglemarketingplatform,
+    icon: IoBagOutline,
     link: "/market",
     id: 4,
   },
   { title: "Игры", color: "green", icon: CgGames, link: "/games", id: 5 },
   {
-    title: "Cтикеры",
+    title: "Фотографии",
     color: "yellow",
-    icon: LuSticker,
-    link: "/stickers",
+    icon: MdOutlinePhotoSizeSelectActual,
+    link: "/photos",
     id: 6,
   },
   {

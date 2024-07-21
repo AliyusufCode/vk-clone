@@ -9,6 +9,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 export type Comment = {
   user: string;
   img: string;
+  id: number;
   comment: string;
 };
 export type PostsProps = {
@@ -79,7 +80,7 @@ const Posts: React.FC<PostsProps> = ({
       <div className={styles.commentsContainer}>
         <div className={styles.line} />
         {comments?.map((el: Comment) => (
-          <div key={el.user} className={styles.comments}>
+          <div key={el.id} className={styles.comments}>
             <div className={styles.block}>
               <div>
                 <img src={el.img} alt="img" />

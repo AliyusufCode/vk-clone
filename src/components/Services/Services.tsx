@@ -17,7 +17,7 @@ const Services = () => {
     <div className={styles.container}>
       <div className={styles.services}>
         {servicesList.map((el: ServicesType) => (
-          <Link to={el.link}>
+          <Link to={el.link} key={el.id}>
             <span className={styles.layoutServices}>
               <el.icon className={styles.icon} color={el.color} />
               <p>{el.title}</p>

@@ -7,6 +7,7 @@ type PropsFooter = {
   title: string;
   link: string;
   icon: any;
+  id: number;
 };
 
 const Footer = () => {
@@ -21,7 +22,7 @@ const Footer = () => {
       {footerList.map((el: PropsFooter) => (
         <div
           className={styles.content}
-          key={el.link}
+          key={el.id}
           onClick={() => setActive(path)}
         >
           <Link to={el.link}>
