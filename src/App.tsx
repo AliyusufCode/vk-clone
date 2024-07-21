@@ -17,6 +17,7 @@ import Groups from "./components/Groups/Groups";
 import Empty from "./components/Empty/Empty";
 import Music from "./components/Music/Music";
 import Photos from "./components/Photos/Photos";
+import Market from "./components/Market/Market";
 
 function App() {
   return (
@@ -49,6 +50,8 @@ function App() {
             <Route path="/audio" element={<Music />} />
             <Route path="/games" element={<Empty />} />
             <Route path="/photos" element={<Photos />} />
+            <Route path="/market" element={<Market />} />
+            <Route path="/help" element={<Empty />} />
           </Routes>
         </div>
       </div>

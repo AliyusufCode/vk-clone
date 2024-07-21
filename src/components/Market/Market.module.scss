@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin: 65px 3px;
+  width: 100%;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 500px;
+  background: rgba(32, 31, 33, 0.842);
+  height: fit-content;
+  border-radius: 10px;
+  padding: 10px;
+  .head {
+    margin: 5px 0;
+    font-size: 19px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    margin-bottom: 10px;
+  }
+  .recommend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 500px;
+
+    .layout {
+      img {
+        border-radius: 15px;
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+      }
+      .footerLayout {
+        display: flex;
+        flex-direction: column;
+        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
+        .sale {
+          margin-left: 10px;
+          color: gray;
+        }
+        p {
+          margin: 0;
+          color: gray;
+        }
+        margin-bottom: 12px;
+      }
+    }
+  }
+}

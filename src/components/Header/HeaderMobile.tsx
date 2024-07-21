@@ -77,10 +77,39 @@ const HeaderMobile = () => {
               </div>
             </>
           )}
+          {path === "/market" && (
+            <>
+              <span onClick={() => navigate(-1)} className={styles.back}>
+                <GoArrowLeft className={styles.iconBack} />
+              </span>
+
+              <div className={styles.contentInput}>
+                <LiaSearchSolid className={styles.searchIcon} />
+                <input
+                  type="text"
+                  placeholder="Поиск"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                />
+                {inputValue && (
+                  <IoMdClose
+                    className={styles.clearIcon}
+                    onClick={handleClearInput}
+                  />
+                )}
+              </div>
+            </>
+          )}
           {path === "/friends" && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Все друзья</span>
+            </span>
+          )}
+          {path === "/help" && (
+            <span onClick={() => navigate(-1)} className={styles.back}>
+              <GoArrowLeft className={styles.iconBack} />
+              <span>Помощь</span>
             </span>
           )}
           {path === "/audio" && (

@@ -1,7 +1,7 @@
 export const photosList = [
   {
     image:
-      "https://i.pinimg.com/564x/9a/1e/8d/9a1e8dd5e7c96084747a23dc92873123.jpg",
+      "https://i.pinimg.com/564x/32/99/d5/3299d5578aaf86c76b7cac0deb220d88.jpg",
     id: 1,
   },
   {
@@ -16,18 +16,18 @@ export const photosList = [
   },
   {
     image:
-      "https://i.pinimg.com/564x/d9/76/1d/d9761ddb3adf5f206a8c78cc96f3844d.jpg",
+      "https://i.pinimg.com/564x/87/94/7c/87947c7e3e03e317400b1288f29cb363.jpg",
     id: 4,
   },
   {
     image:
-      "https://i.pinimg.com/564x/c6/9e/b6/c69eb68a3c4e70b2f3bc868e3c99d368.jpg",
+      "https://i.pinimg.com/564x/bf/33/80/bf33803ff94fe90f7e7b35298923c7d2.jpg",
 
     id: 5,
   },
   {
     image:
-      "https://i.pinimg.com/564x/e9/1a/69/e91a695d2def28f83a60b31e9c66a4e0.jpg",
+      "https://i.pinimg.com/564x/d8/23/55/d82355fc5bf9454e16b160b770c8e3b0.jpg",
     id: 6,
   },
   {
@@ -37,7 +37,7 @@ export const photosList = [
   },
   {
     image:
-      "https://i.pinimg.com/564x/97/c1/eb/97c1eb5f2138c730917770179f64a7cf.jpg",
+      "https://i.pinimg.com/736x/e9/77/08/e97708de4d58f4e64d05c4824a59733f.jpg",
 
     id: 8,
   },
@@ -48,12 +48,37 @@ export const photosList = [
   },
   {
     image:
-      "https://i.pinimg.com/736x/85/5e/6e/855e6eb4a3826d48b2750639e9201c36.jpg",
+      "https://i.pinimg.com/736x/bb/b7/36/bbb73664c935d14d7387647039b8262a.jpg",
     id: 10,
   },
   {
     image:
       "https://i.pinimg.com/564x/17/e3/b0/17e3b024dead7b5d811bfdd38b4b008e.jpg",
     id: 11,
+  },
+  {
+    image:
+      "https://i.pinimg.com/736x/ef/e2/ca/efe2ca0e4a1e27fcd51dcf663c4ed4d3.jpg",
+    id: 12,
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/24/ec/2e/24ec2e80624ea7e2a45c4f27f75c87ed.jpg",
+    id: 13,
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/aa/02/68/aa02689b38f98505c0debaa982c954cf.jpg",
+    id: 14,
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/fe/c6/12/fec612b38c65dceb0b34034484c96567.jpg",
+    id: 15,
+  },
+  {
+    image:
+      "https://i.pinimg.com/564x/5d/eb/f9/5debf9c9205aa3032f16ad645bf89517.jpg",
+    id: 16,
   },
 ];

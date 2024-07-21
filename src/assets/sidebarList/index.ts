@@ -59,6 +59,5 @@ export const mobileList = [
   },
   { title: "Сервисы", icon: GrServices, link: "/services" },
   { title: "Маркет", icon: SiGooglemarketingplatform, link: "/market" },
-  { title: "VK Pay", icon: FaRubleSign, link: "/vkpay" },
   { title: "Помощь", icon: IoMdHelpCircleOutline, link: "/help" },
 ];
