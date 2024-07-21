@@ -1,10 +1,10 @@
 import styles from "./HeaderMobile.module.scss";
-import { HiOutlinePlusCircle } from "react-icons/hi2";
-import { CgSearch } from "react-icons/cg";
+// import { HiOutlinePlusCircle } from "react-icons/hi2";
+// import { CgSearch } from "react-icons/cg";
 import { useState, useEffect } from "react";
 import { IoMdClose } from "react-icons/io";
 import { LiaSearchSolid } from "react-icons/lia";
-import { RxHamburgerMenu } from "react-icons/rx";
+// import { RxHamburgerMenu } from "react-icons/rx";
 import { useLocation, useNavigate } from "react-router-dom";
 import { GoArrowLeft } from "react-icons/go";
 
