@@ -3,7 +3,6 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { CiMusicNote1 } from "react-icons/ci";
 import { CgGames } from "react-icons/cg";
 import { IoBagOutline } from "react-icons/io5";
-import { LuSticker } from "react-icons/lu";
 import { IoFootstepsOutline } from "react-icons/io5";
 import { TbMailHeart } from "react-icons/tb";
 import { MdOutlinePhotoSizeSelectActual } from "react-icons/md";
