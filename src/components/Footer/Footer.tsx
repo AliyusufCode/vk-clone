@@ -25,14 +25,18 @@ const Footer = () => {
           onClick={() => setActive(path)}
         >
           <Link to={el.link}>
-            <el.icon
-              className={el.link === active ? styles.iconActive : styles.icon}
-            />
-            <p
-              className={el.link === active ? styles.titleActive : styles.title}
-            >
-              {el.title}
-            </p>
+            <div>
+              <el.icon
+                className={el.link === active ? styles.iconActive : styles.icon}
+              />
+              <p
+                className={
+                  el.link === active ? styles.titleActive : styles.title
+                }
+              >
+                {el.title}
+              </p>
+            </div>
           </Link>
         </div>
       ))}
