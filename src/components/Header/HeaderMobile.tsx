@@ -51,16 +51,10 @@ const HeaderMobile = () => {
         {path === "/im" && <span>Чаты</span>}
         {path === "/notifications" && <span>Уведомления</span>}
         {path === "/me" && <span>Ещё</span>}
-        {path === "/friends" && <span>Все друзья</span>}
         {path === "/clip" && <span>Клипы</span>}
-
+        {path === "/games" && <span>Игры</span>}
         <div className={styles.icons}>
-          {path === "/groups" ? null : path === "/audio" ? null : (
-            <CgSearch className={styles.icon} />
-          )}
-          {path === "/" ? (
-            <HiOutlinePlusCircle className={styles.iconLast} />
-          ) : path === "/groups" ? (
+          {path === "/groups" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -82,13 +76,24 @@ const HeaderMobile = () => {
                 )}
               </div>
             </>
-          ) : path === "/audio" ? (
+          )}
+          {path === "/friends" && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
-              <span> Мои треки</span>
+              <span>Все друзья</span>
             </span>
-          ) : (
-            <RxHamburgerMenu className={styles.iconLast} />
+          )}
+          {path === "/audio" && (
+            <span onClick={() => navigate(-1)} className={styles.back}>
+              <GoArrowLeft className={styles.iconBack} />
+              <span> Моя музыка</span>
+            </span>
+          )}
+          {path === "/photos" && (
+            <span onClick={() => navigate(-1)} className={styles.back}>
+              <GoArrowLeft className={styles.iconBack} />
+              <span>Мои фотографии</span>
+            </span>
           )}
         </div>
       </div>

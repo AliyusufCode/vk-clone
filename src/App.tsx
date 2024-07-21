@@ -15,6 +15,8 @@ import Me from "./components/Me/Me";
 import Friends from "./components/Frends/Frends";
 import Groups from "./components/Groups/Groups";
 import Empty from "./components/Empty/Empty";
+import Music from "./components/Music/Music";
+import Photos from "./components/Photos/Photos";
 
 function App() {
   return (
@@ -44,6 +46,9 @@ function App() {
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/clip" element={<Empty />} />
+            <Route path="/audio" element={<Music />} />
+            <Route path="/games" element={<Empty />} />
+            <Route path="/photos" element={<Photos />} />
           </Routes>
         </div>
       </div>
