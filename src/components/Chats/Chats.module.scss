@@ -2,11 +2,55 @@
   margin-top: 65px;
   display: flex;
   flex-direction: column;
-  padding: 0 20px;
+  padding: 0px;
   margin-bottom: 100px;
+  height: fit-content;
+  width: 100vw;
+  .contentInput {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    position: relative;
+    input {
+      display: flex;
+      border: none;
+      font-size: 14px;
+      margin: 0 auto;
+      outline: none;
+      background: rgb(40, 39, 39);
+      padding: 10px 20px;
+      border-radius: 10px;
+      width: 100%;
+      margin: 0 10px;
+      padding-left: 40px;
+    }
+    .searchIcon,
+    .clearIcon {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      z-index: 1;
+    }
+    .searchIcon {
+      left: 5vw;
+    }
+    .clearIcon {
+      right: 4vw;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+  }
+
+  .contentInput input:not(:placeholder-shown) + .clearIcon {
+    opacity: 1;
+    animation: slideIn 0.3s ease-in-out;
+  }
   .сhats {
     display: flex;
     margin: 7px 0;
+    padding: 0 20px;
     align-items: center;
     img {
       width: 50px;

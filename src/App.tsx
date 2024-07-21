@@ -18,6 +18,7 @@ import Empty from "./components/Empty/Empty";
 import Music from "./components/Music/Music";
 import Photos from "./components/Photos/Photos";
 import Market from "./components/Market/Market";
+import OpenedChat from "./components/OpenedChat/OpenedChat";
 
 function App() {
   return (
@@ -54,6 +55,7 @@ function App() {
             <Route path="/help" element={<Empty />} />
             <Route path="/steps" element={<Empty />} />
             <Route path="/acquaintance" element={<Empty />} />
+            <Route path="/im/:id" element={<OpenedChat />} />
           </Routes>
         </div>
       </div>
