@@ -74,11 +74,11 @@ const Music: React.FC = () => {
                         audioRef.current.duration) *
                         100 || 0
                     }
-                    onChange={(e) => {
-                      const time =
-                        (e.target.value * audioRef.current.duration) / 100;
-                      audioRef.current.currentTime = time;
-                    }}
+                    // onChange={(e) => {
+                    //   const time =
+                    //     (e.target.value * audioRef.current.duration) / 100;
+                    //   audioRef.current.currentTime = time;
+                    // }}
                   />
                 ) : (
                   <span style={{ color: "gray" }}>{el.executor}</span>
