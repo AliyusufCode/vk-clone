@@ -6,6 +6,7 @@ import { FaCircleArrowUp } from "react-icons/fa6";
 import { FiPlusCircle } from "react-icons/fi";
 import { useDispatch } from "react-redux";
 import { addMessage } from "../../redux/Slices/chatSlice";
+import EmojiPanel from "../Emoji/EmojiPanel";
 const InputChat = () => {
   const dispatch = useDispatch();
   const [inputValue, setInputValue] = useState("");
@@ -13,10 +14,12 @@ const InputChat = () => {
   const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
   };
+
   const getCurrentTime = () => {
     const now = new Date();
     return `${now.getHours()}:${now.getMinutes()}`;
   };
+
   const handleSendMessage = () => {
     dispatch(
       addMessage({
@@ -25,6 +28,8 @@ const InputChat = () => {
         isMyMessage: true,
       })
     );
+    setShowEmojiPanel(false);
+
     setTimeout(() => {
       dispatch(
         addMessage({
@@ -36,6 +41,16 @@ const InputChat = () => {
     }, 1000);
 
     setInputValue("");
+  };
+
+  const [showEmojiPanel, setShowEmojiPanel] = useState(false);
+  const toggleEmojiPanel = () => {
+    setShowEmojiPanel(!showEmojiPanel);
+  };
+
+  const handleEmojiSelection = (selectedEmoji: any) => {
+    setInputValue(inputValue + selectedEmoji);
+    setShowEmojiPanel(false);
   };
 
   return (
@@ -51,7 +66,7 @@ const InputChat = () => {
           />
         </>
         <>
-          <GoSmiley className={styles.icon} />
+          <GoSmiley className={styles.icon} onClick={toggleEmojiPanel} />
           {inputValue ? (
             <FaCircleArrowUp
               className={styles.icon}
@@ -61,6 +76,9 @@ const InputChat = () => {
             <MdKeyboardVoice className={styles.icon} />
           )}
         </>
+        {showEmojiPanel && (
+          <EmojiPanel handleEmojiSelection={handleEmojiSelection} />
+        )}
       </div>
     </div>
   );

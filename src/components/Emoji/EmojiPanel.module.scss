@@ -1,0 +1,17 @@
+.emojiPanel {
+  position: fixed;
+  width: 100vw;
+  top: 83vh;
+  display: flex;
+  justify-content: space-around;
+  height: fit-content;
+  margin-left: 7px;
+}
+
+.emojiPanel span {
+  width: 100vw;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  flex-wrap: wrap;
+}
