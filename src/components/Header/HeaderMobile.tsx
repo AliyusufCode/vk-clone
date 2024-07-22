@@ -1,7 +1,7 @@
 import styles from "./HeaderMobile.module.scss";
 // import { HiOutlinePlusCircle } from "react-icons/hi2";
 // import { CgSearch } from "react-icons/cg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { LiaSearchSolid } from "react-icons/lia";
 // import { RxHamburgerMenu } from "react-icons/rx";
@@ -16,9 +16,7 @@ const HeaderMobile = () => {
   const lastElement = pathElements[pathElements.length - 1];
 
   console.log(lastElement);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const navigate = useNavigate();
-  const [visible, setVisible] = useState(true);
   const [active, setActive] = useState(0);
   const [inputValue, setInputValue] = useState("");
 
@@ -29,30 +27,13 @@ const HeaderMobile = () => {
   const handleClearInput = () => {
     setInputValue("");
   };
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const visible = prevScrollPos > currentScrollPos || currentScrollPos < 130;
-    setPrevScrollPos(currentScrollPos);
-    setVisible(visible);
-  };
-
-  const headerStyle = {
-    top: visible ? "0" : "-120px",
-    transition: "top 0.3s",
-  };
   const listHeader = ["Новости", "Для вас"];
 
   const chat = chatsList.find((el) => el.id.toString() === lastElement);
 
   return (
-    <div className={styles.container} style={headerStyle}>
+    <div className={styles.container}>
       <div className={styles.head}>
         {path === "/" && <span>Главная</span>}
         {path === "/services" && <span>Сервисы</span>}

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, useLocation } from "react-router";
 import "./App.css";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
@@ -19,8 +19,11 @@ import Music from "./components/Music/Music";
 import Photos from "./components/Photos/Photos";
 import Market from "./components/Market/Market";
 import OpenedChat from "./components/OpenedChat/OpenedChat";
+import InputChat from "./components/InputChat/InputChat";
 
 function App() {
+  const location = useLocation();
+  const path = location.pathname;
   return (
     <div>
       <Header />
@@ -59,7 +62,7 @@ function App() {
           </Routes>
         </div>
       </div>
-      <Footer />
+      {path.startsWith("/im/") ? <InputChat /> : <Footer />}
     </div>
   );
 }

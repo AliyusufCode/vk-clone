@@ -8,10 +8,14 @@ const OpenedChat = () => {
       />
       <div className={styles.messageContainer}>
         <div className={styles.friendMessage}>
-          <span> Сообщение друга</span>
+          <span>
+            Сообщение друга <p>16:14</p>
+          </span>
         </div>
         <div className={styles.myMessage}>
-          <span> Моё сообщение</span>
+          <span>
+            Моё сообщение <p>16:16</p>
+          </span>
         </div>
       </div>
     </div>
