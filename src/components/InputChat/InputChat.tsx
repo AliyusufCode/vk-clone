@@ -52,7 +52,13 @@ const InputChat = () => {
     setInputValue(inputValue + selectedEmoji);
     setShowEmojiPanel(false);
   };
-
+  const [visible, setVisisble] = useState(false);
+  const handleClickVoice = () => {
+    setVisisble(true);
+    setTimeout(() => {
+      setVisisble(false);
+    }, 1000);
+  };
   return (
     <div className={styles.container}>
       <div className={styles.content}>
@@ -73,7 +79,15 @@ const InputChat = () => {
               onClick={handleSendMessage}
             />
           ) : (
-            <MdKeyboardVoice className={styles.icon} />
+            <MdKeyboardVoice
+              className={styles.icon}
+              onClick={handleClickVoice}
+            />
+          )}
+          {visible && (
+            <div className={styles.voice}>
+              <span>Голосовые пока не доступны</span>
+            </div>
           )}
         </>
         {showEmojiPanel && (
