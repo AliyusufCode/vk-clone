@@ -19,7 +19,7 @@ const InputChat = () => {
       <div className={styles.content}>
         <input
           type="text"
-          placeholder="Сообщение"
+          placeholder="Ваше сообщение"
           value={inputValue}
           onChange={handleInputChange}
         />
