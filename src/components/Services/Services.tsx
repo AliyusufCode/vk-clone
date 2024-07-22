@@ -36,16 +36,18 @@ const Services = () => {
           {recommendedGruop.map((el) => (
             <SwiperSlide key={el.id}>
               <div className={styles.container}>
-                <div className={styles.cart}>
-                  <img src={el.image} alt="img" className={styles.img} />
-                  <div className={styles.content}>
-                    <p className={styles.title}>
-                      {el.title.length > 7
-                        ? `${el.title.slice(0, 6)}..`
-                        : el.title}
-                    </p>
+                <Link style={{ color: "white" }} to={`/groups/${el.id}`}>
+                  <div className={styles.cart}>
+                    <img src={el.image} alt="img" className={styles.img} />
+                    <div className={styles.content}>
+                      <p className={styles.title}>
+                        {el.title.length > 7
+                          ? `${el.title.slice(0, 6)}..`
+                          : el.title}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </SwiperSlide>
           ))}

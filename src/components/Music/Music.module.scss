@@ -26,10 +26,25 @@
       .layout {
         display: flex;
         align-items: center;
+        position: relative;
 
         span {
           font-size: 16px;
           font-weight: 400;
+        }
+        .play {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 50%;
+          margin-left: 25px;
+          transform: translate(-50%, -50%);
+          color: black;
+          z-index: 22222;
+          padding: 7px;
+          border-radius: 50%;
+          background: white;
         }
         .img {
           width: 50px;

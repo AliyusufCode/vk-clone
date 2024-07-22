@@ -40,7 +40,6 @@ const Posts: React.FC<PostsProps> = ({
   groupId,
   comments,
 }) => {
-  console.log(comments);
   return (
     <div className={styles.container}>
       <header className={styles.header}>
