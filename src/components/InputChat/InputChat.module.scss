@@ -16,11 +16,16 @@
     margin-bottom: 5px;
     width: 100vw;
     justify-content: space-between;
+    .iconPlus {
+      color: rgb(0, 187, 244);
+      font-size: 42px;
+      margin-left: 15px;
+    }
     input {
       width: 100vw;
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
-      margin: 0 20px;
+      margin: 0 10px;
       border-radius: 20px;
       min-height: 30px;
       color: white;
