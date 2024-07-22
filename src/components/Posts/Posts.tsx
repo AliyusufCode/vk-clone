@@ -6,6 +6,7 @@ import { TiArrowForwardOutline } from "react-icons/ti";
 import { HiOutlineEye } from "react-icons/hi";
 import { MdSend } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { Link } from "react-router-dom";
 export type Comment = {
   user: string;
   img: string;
@@ -17,6 +18,7 @@ export type PostsProps = {
   publishedName: string;
   timePublished: string;
   body: string;
+  groupId: number;
   image: string;
   likes: number;
   commentsCount: number;
@@ -35,21 +37,24 @@ const Posts: React.FC<PostsProps> = ({
   commentsCount,
   redirected,
   views,
+  groupId,
   comments,
 }) => {
   console.log(comments);
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <div className={styles.content}>
-          <div>
-            <img src={publishedImage} alt="" />
+        <Link to={`/groups/${groupId}`}>
+          <div className={styles.content}>
+            <div>
+              <img src={publishedImage} alt="" />
+            </div>
+            <div className={styles.info}>
+              <span>{publishedName}</span>
+              <p>{timePublished}</p>
+            </div>
           </div>
-          <div className={styles.info}>
-            <span>{publishedName}</span>
-            <p>{timePublished}</p>
-          </div>
-        </div>
+        </Link>
         <HiDotsHorizontal className={styles.icon} />
       </header>
       <div className={styles.body}>

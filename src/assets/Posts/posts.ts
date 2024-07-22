@@ -12,6 +12,7 @@ export const posts = [
     redirected: 923,
     views: 92,
     id: 1,
+    groupId: 1,
     comments: [
       {
         user: "Иван",
@@ -40,6 +41,8 @@ export const posts = [
     redirected: 233,
     views: 34,
     id: 2,
+    groupId: 2,
+
     comments: [
       {
         user: "Иван",
@@ -68,6 +71,8 @@ export const posts = [
     redirected: 993,
     views: 87,
     id: 3,
+    groupId: 1,
+
     comments: [
       {
         user: "Иван",

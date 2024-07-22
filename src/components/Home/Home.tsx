@@ -11,6 +11,7 @@ const Home = () => {
       {posts.map((el: PostsProps) => (
         <Posts
           key={el.id}
+          groupId={el.groupId}
           image={el.image}
           publishedImage={el.publishedImage}
           publishedName={el.publishedName}

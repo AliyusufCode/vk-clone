@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { GoArrowLeft } from "react-icons/go";
 import { chatsList } from "../../assets/Chats/chatsList";
+
 const HeaderMobile = () => {
   const location = useLocation();
   const path = location.pathname;
