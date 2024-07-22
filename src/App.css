@@ -25,7 +25,6 @@
 
 .swiper {
   width: auto;
-  width: auto;
   max-width: 530px;
   height: 180px;
   padding: 0 10px !important;
@@ -44,7 +43,6 @@
   height: fit-content;
   min-width: fit-content;
   margin-top: 12px;
-  /* padding: 10px 0; */
   padding-left: 10px;
   padding-right: 10px;
   border-radius: 10px;
@@ -71,6 +69,13 @@
   .swiper {
     height: 120px !important;
     max-width: 380px;
+    margin-left: 0 !important;
+  }
+}
+@media (max-width: 390px) {
+  .swiper {
+    height: 120px !important;
+    max-width: 350px !important;
     margin-left: 0 !important;
   }
 }

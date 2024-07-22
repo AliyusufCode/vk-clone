@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { groupsList } from "../../assets/Groups/groupsList";
 import styles from "./Groups.module.scss";
 type GroupsType = {
@@ -14,13 +15,15 @@ const Groups = () => {
       </span>
       {groupsList.map((el: GroupsType) => (
         <div className={styles.groups} key={el.id}>
-          <div className={styles.groupsContent}>
-            <img src={el.img} alt="img" />
-            <div className={styles.textGroups}>
-              <div className={styles.name}>{el.name}</div>
-              <div className={styles.body}>{el.body}</div>
+          <Link to={`/groups/${el.id}`}>
+            <div className={styles.groupsContent}>
+              <img src={el.img} alt="img" />
+              <div className={styles.textGroups}>
+                <div className={styles.name}>{el.name}</div>
+                <div className={styles.body}>{el.body}</div>
+              </div>
             </div>
-          </div>
+          </Link>
         </div>
       ))}
     </div>

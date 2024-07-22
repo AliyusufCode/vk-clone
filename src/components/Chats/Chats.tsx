@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 type ChatsType = {
   name: string;
   avatar: string;
-  lastMessage: string;
+  lastMessage?: string;
   id: number;
 };
 const Chats = () => {
@@ -27,7 +27,7 @@ const Chats = () => {
         <LiaSearchSolid className={styles.searchIcon} />
         <input
           type="text"
-          placeholder="Поиск по сообществам"
+          placeholder="Поиск по чатам"
           value={inputValue}
           onChange={handleInputChange}
         />
@@ -42,9 +42,11 @@ const Chats = () => {
             <div className={styles.infoChat}>
               <span className={styles.name}>{el.name}</span>
               <span className={styles.msg}>
-                {el.lastMessage.length > 7
-                  ? `${el.lastMessage.slice(0, 35)}...`
-                  : el.lastMessage}
+                {el.lastMessage
+                  ? el.lastMessage.length > 7
+                    ? `${el.lastMessage.slice(0, 35)}...`
+                    : el.lastMessage
+                  : "Здесь пока пусто"}
               </span>
             </div>
           </div>

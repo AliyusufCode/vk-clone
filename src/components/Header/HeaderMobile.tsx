@@ -146,6 +146,28 @@ const HeaderMobile = () => {
               <HiDotsHorizontal className={styles.chatIcon} />
             </div>
           )}
+          {path.startsWith("/groups/") && (
+            <div className={styles.groupsContent}>
+              <span onClick={() => navigate(-1)} className={styles.back}>
+                <GoArrowLeft className={styles.iconBack} />
+              </span>
+              <div className={styles.contentInput}>
+                <LiaSearchSolid className={styles.searchIcon} />
+                <input
+                  type="text"
+                  placeholder="Поиск по стене"
+                  value={inputValue}
+                  onChange={handleInputChange}
+                />
+                {inputValue && (
+                  <IoMdClose
+                    className={styles.clearIcon}
+                    onClick={handleClearInput}
+                  />
+                )}
+              </div>
+            </div>
+          )}
         </div>
       </div>
       {path === "/" && (

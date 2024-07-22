@@ -20,6 +20,7 @@ import Photos from "./components/Photos/Photos";
 import Market from "./components/Market/Market";
 import OpenedChat from "./components/OpenedChat/OpenedChat";
 import InputChat from "./components/InputChat/InputChat";
+import { OpenedGroup } from "./components/OpenedGroup/OpenedGroup";
 
 function App() {
   const location = useLocation();
@@ -59,6 +60,7 @@ function App() {
             <Route path="/steps" element={<Empty />} />
             <Route path="/acquaintance" element={<Empty />} />
             <Route path="/im/:id" element={<OpenedChat />} />
+            <Route path="/groups/:id" element={<OpenedGroup />} />
           </Routes>
         </div>
       </div>

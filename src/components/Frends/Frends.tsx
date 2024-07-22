@@ -4,6 +4,7 @@ import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { LuMessageCircle } from "react-icons/lu";
 import { friendsList } from "../../assets/Friends/friendsList";
+import { Link } from "react-router-dom";
 type FriendsType = {
   img: string;
   lastname: string;
@@ -42,7 +43,9 @@ const Friends = () => {
               {el.lastname} {el.firstname}
             </span>
           </div>
-          <LuMessageCircle className={styles.icon} />
+          <Link to={`/im/${el.id}`}>
+            <LuMessageCircle className={styles.icon} />
+          </Link>
         </div>
       ))}
     </div>

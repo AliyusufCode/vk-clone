@@ -63,6 +63,13 @@
       border-bottom: 2px solid rgb(0, 187, 244);
     }
   }
+  .groupsContent {
+    display: flex;
+    align-items: center;
+    .iconBack {
+      color: rgb(0, 187, 244);
+    }
+  }
 }
 .contentInput {
   display: flex;
@@ -93,10 +100,10 @@
     z-index: 1;
   }
   .searchIcon {
-    left: 22vw;
+    left: 23vw;
   }
   .clearIcon {
-    right: 22vw;
+    right: 23vw;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
   }
