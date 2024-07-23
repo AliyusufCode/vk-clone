@@ -4,7 +4,7 @@ export const chatsList = [
     avatar:
       "https://i.pinimg.com/564x/37/b0/92/37b092f59895ec38d50dfca91e053938.jpg",
     lastMessage: "скоро буду",
-    id: 3,
+    id: 3222,
   },
 
   {

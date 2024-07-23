@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  z-index: 1111111;
+  img {
+    margin-top: 55px;
+    width: 100vw;
+    height: 75vh;
+    object-fit: contain;
+  }
+}

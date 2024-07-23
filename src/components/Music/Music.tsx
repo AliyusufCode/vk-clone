@@ -29,7 +29,11 @@ const Music: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
-
+  useEffect(() => {
+    return () => {
+      stopTrack();
+    };
+  }, []);
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60)
@@ -57,7 +61,13 @@ const Music: React.FC = () => {
     setIsPlaying(false);
     setIsPause(true);
   };
-
+  const stopTrack = () => {
+    audioRef.current.pause();
+    setIsPlaying(false);
+    setIsPause(false);
+    setCurrentTime(0);
+    audioRef.current.currentTime = 0;
+  };
   return (
     <div className={styles.container}>
       <span className={styles.head}>Треки</span>

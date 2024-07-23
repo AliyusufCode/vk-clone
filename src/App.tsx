@@ -21,6 +21,7 @@ import Market from "./components/Market/Market";
 import OpenedChat from "./components/OpenedChat/OpenedChat";
 import InputChat from "./components/InputChat/InputChat";
 import { OpenedGroup } from "./components/OpenedGroup/OpenedGroup";
+import OpenedPhoto from "./components/OpenedPhoto/OpenedPhoto";
 
 function App() {
   const location = useLocation();
@@ -61,10 +62,15 @@ function App() {
             <Route path="/acquaintance" element={<Empty />} />
             <Route path="/im/:id" element={<OpenedChat />} />
             <Route path="/groups/:id" element={<OpenedGroup />} />
+            <Route path="/image/:id" element={<OpenedPhoto />} />
           </Routes>
         </div>
       </div>
-      {path.startsWith("/im/") ? <InputChat /> : <Footer />}
+      {path.startsWith("/im/") ? (
+        <InputChat />
+      ) : path.startsWith("/image/") ? null : (
+        <Footer />
+      )}
     </div>
   );
 }

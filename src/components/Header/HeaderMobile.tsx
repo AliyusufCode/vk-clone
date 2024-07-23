@@ -34,7 +34,11 @@ const HeaderMobile = () => {
   const chat = chatsList.find((el) => el.id.toString() === lastElement);
 
   return (
-    <div className={styles.container}>
+    <div
+      className={
+        path.startsWith("/image/") ? styles.containerPhoto : styles.container
+      }
+    >
       <div className={styles.head}>
         {path === "/" && <span>Главная</span>}
         {path === "/services" && <span>Сервисы</span>}
@@ -45,6 +49,13 @@ const HeaderMobile = () => {
         {path === "/games" && <span>Игры</span>}
         {path === "/steps" && <span>Шаги</span>}
         {path === "/acquaintance" && <span>Знакомства</span>}
+        {path.startsWith("/image/") && (
+          <div>
+            <span onClick={() => navigate(-1)} className={styles.back}>
+              <GoArrowLeft className={styles.iconBack} />
+            </span>
+          </div>
+        )}
         <div className={styles.icons}>
           {path === "/groups" && (
             <>

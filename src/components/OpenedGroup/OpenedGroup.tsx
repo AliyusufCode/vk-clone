@@ -15,7 +15,6 @@ export const OpenedGroup = () => {
   const lastElement = pathElements[pathElements.length - 1];
   const group = allGroupList.find((el) => el.id.toString() === lastElement);
   const post = posts.filter((el) => el.groupId.toString() === lastElement);
-  console.log(post); // Выводим отфильтрованные посты в консоль
 
   return (
     <div className={styles.container}>
