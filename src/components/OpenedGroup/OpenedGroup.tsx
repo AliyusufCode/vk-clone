@@ -32,7 +32,7 @@ export const OpenedGroup = () => {
       <div className={styles.countPosts}>
         <span>{post.length} Записей</span>
       </div>
-      {post ? (
+      {post.length ? (
         post.map((el) => (
           <div className={styles.postsContent}>
             <span className={styles.group}>

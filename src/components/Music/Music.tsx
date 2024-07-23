@@ -19,6 +19,12 @@ const Music: React.FC = () => {
   const [isPause, setIsPause] = useState(false);
   const audioRef = useRef(new Audio());
   const [currentTime, setCurrentTime] = useState(0);
+  const [visible, setVisible] = useState(false);
+  const [songs, setSongs] = useState<MusicType[]>([]);
+
+  useEffect(() => {
+    setSongs(musicList);
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -49,7 +55,7 @@ const Music: React.FC = () => {
       setCurrentTrackIndex(index);
     } else {
       if (index !== currentTrackIndex || !isPlaying) {
-        audioRef.current.src = musicList[index].audio;
+        audioRef.current.src = songs[index].audio;
         setCurrentTrackIndex(index);
         audioRef.current.play();
         setIsPlaying(true);
@@ -68,11 +74,19 @@ const Music: React.FC = () => {
     setCurrentTime(0);
     audioRef.current.currentTime = 0;
   };
+  const handleClickDots = () => {
+    setVisible(true);
+  };
+
+  const closeElement = () => {
+    setVisible(false);
+  };
+
   return (
     <div className={styles.container}>
       <span className={styles.head}>Треки</span>
       <div className={styles.content}>
-        {musicList.map((el: MusicType, index: number) => (
+        {songs.map((el: MusicType, index: number) => (
           <div className={styles.music} key={el.id}>
             <span
               className={styles.layout}
@@ -136,7 +150,20 @@ const Music: React.FC = () => {
                 )}
               </div>
             </span>
-            <HiDotsHorizontal className={styles.icon} />
+            {visible && (
+              <div className={styles.overlay}>
+                <div className={styles.voice}>
+                  <span className={styles.del}>Удалить аудиозапись</span>
+                  <span className={styles.back} onClick={closeElement}>
+                    Отмена
+                  </span>
+                </div>
+              </div>
+            )}
+            <HiDotsHorizontal
+              className={styles.icon}
+              onClick={handleClickDots}
+            />
           </div>
         ))}
       </div>
