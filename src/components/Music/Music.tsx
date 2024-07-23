@@ -4,6 +4,15 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import React, { useEffect, useRef, useState } from "react";
 import { FaPlay } from "react-icons/fa6";
 import { musicList } from "../../assets/Music/musicList";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../redux/store";
+import {
+  setCurrentTime,
+  setCurrentTrackIndex,
+  setIsPause,
+  setIsPlaying,
+  setSongs,
+} from "../../redux/Slices/musicSlice";
 
 type MusicType = {
   image?: string;
@@ -14,22 +23,21 @@ type MusicType = {
 };
 
 const Music: React.FC = () => {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(Number);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [isPause, setIsPause] = useState(false);
+  const dispatch = useDispatch();
+  const { currentTrackIndex, isPlaying, isPause, currentTime, songs } =
+    useSelector((state: RootState) => state.music);
   const audioRef = useRef(new Audio());
-  const [currentTime, setCurrentTime] = useState(0);
+  const [songDeleteId, setSongDeleteId] = useState(null);
   const [visible, setVisible] = useState(false);
-  const [songs, setSongs] = useState<MusicType[]>([]);
 
   useEffect(() => {
-    setSongs(musicList);
-  }, []);
+    dispatch(setSongs(musicList));
+  }, [musicList]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       if (audioRef.current.duration) {
-        setCurrentTime(audioRef.current.currentTime);
+        dispatch(setCurrentTime(audioRef.current.currentTime));
       }
     }, 1000);
 
@@ -51,43 +59,66 @@ const Music: React.FC = () => {
   const playTrack = (index: number) => {
     if (index === currentTrackIndex && isPlaying) {
       audioRef.current.pause();
-      setIsPlaying(false);
-      setCurrentTrackIndex(index);
+      dispatch(setIsPlaying(false));
+      dispatch(setCurrentTrackIndex(index));
     } else {
       if (index !== currentTrackIndex || !isPlaying) {
         audioRef.current.src = songs[index].audio;
-        setCurrentTrackIndex(index);
+        dispatch(setCurrentTrackIndex(index));
         audioRef.current.play();
-        setIsPlaying(true);
+        dispatch(setIsPlaying(true));
       }
     }
   };
   const pauseTrack = () => {
     audioRef.current.pause();
-    setIsPlaying(false);
-    setIsPause(true);
+    dispatch(setIsPlaying(false));
+    dispatch(setIsPause(true));
   };
   const stopTrack = () => {
     audioRef.current.pause();
-    setIsPlaying(false);
-    setIsPause(false);
-    setCurrentTime(0);
+    dispatch(setIsPlaying(false));
+    dispatch(setIsPause(false));
+    dispatch(setCurrentTime(0));
+
     audioRef.current.currentTime = 0;
   };
-  const handleClickDots = () => {
+  const handleClickDots = (id: any) => {
     setVisible(true);
+    setSongDeleteId(id);
   };
 
   const closeElement = () => {
     setVisible(false);
   };
 
+  const deleteSong = (id: any) => {
+    dispatch(setSongs(songs.filter((el: MusicType) => el.id !== id)));
+    setVisible(false);
+    setSongDeleteId(null);
+  };
+  console.log(currentTrackIndex);
   return (
     <div className={styles.container}>
       <span className={styles.head}>Треки</span>
       <div className={styles.content}>
         {songs.map((el: MusicType, index: number) => (
           <div className={styles.music} key={el.id}>
+            {visible && (
+              <div className={styles.overlay}>
+                <div className={styles.voice}>
+                  <span
+                    className={styles.del}
+                    onClick={() => deleteSong(songDeleteId)}
+                  >
+                    Удалить аудиозапись
+                  </span>
+                  <span className={styles.back} onClick={closeElement}>
+                    Отмена
+                  </span>
+                </div>
+              </div>
+            )}
             <span
               className={styles.layout}
               onClick={
@@ -97,6 +128,7 @@ const Music: React.FC = () => {
               }
             >
               <img
+                onClick={() => console.log(el.id)}
                 src={
                   el.image ||
                   "https://i.pinimg.com/564x/c1/7d/28/c17d2836efef2a8d4395c8a27f37e45d.jpg"
@@ -150,19 +182,10 @@ const Music: React.FC = () => {
                 )}
               </div>
             </span>
-            {visible && (
-              <div className={styles.overlay}>
-                <div className={styles.voice}>
-                  <span className={styles.del}>Удалить аудиозапись</span>
-                  <span className={styles.back} onClick={closeElement}>
-                    Отмена
-                  </span>
-                </div>
-              </div>
-            )}
+
             <HiDotsHorizontal
               className={styles.icon}
-              onClick={handleClickDots}
+              onClick={() => handleClickDots(el.id)}
             />
           </div>
         ))}

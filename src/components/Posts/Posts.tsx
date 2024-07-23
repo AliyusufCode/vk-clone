@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 import styles from "./Posts.module.scss";
 import { BiComment } from "react-icons/bi";
 import { HiDotsHorizontal } from "react-icons/hi";
@@ -40,6 +41,46 @@ const Posts: React.FC<PostsProps> = ({
   groupId,
   comments,
 }) => {
+  const [visible, setVisible] = useState(false);
+  const popupRef = useRef<HTMLDivElement | null>(null);
+  const closeElement = () => {
+    setVisible(false);
+  };
+  const handleClickOutside = (event: MouseEvent) => {
+    if (popupRef.current && !popupRef.current.contains(event.target as Node)) {
+      closeElement();
+    }
+  };
+  useEffect(() => {
+    if (visible) {
+      document.addEventListener("mousedown", handleClickOutside);
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [visible]);
+  const copyRef = useRef<HTMLSpanElement>(null);
+
+  const copyText = () => {
+    const currentUrl = window.location.href;
+    const text = `${currentUrl}?groupId=${groupId}`;
+
+    if (copyRef.current) {
+      navigator.clipboard
+        .writeText(text)
+        .then(() => {
+          setVisible(false);
+          toast.success(`Cсылка на пост скопировна`);
+        })
+        .catch((err) => {
+          console.error("Ошибка при копировании:", err);
+        });
+    }
+  };
+
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -54,8 +95,18 @@ const Posts: React.FC<PostsProps> = ({
             </div>
           </div>
         </Link>
-        <HiDotsHorizontal className={styles.icon} />
+        <HiDotsHorizontal
+          className={styles.icon}
+          onClick={() => setVisible(!visible)}
+        />
       </header>
+      {visible && (
+        <div className={styles.popup} ref={popupRef}>
+          <span className={styles.copy} onClick={copyText} ref={copyRef}>
+            Скопировать ссылку
+          </span>
+        </div>
+      )}
       <div className={styles.body}>
         <p className={styles.title}>{body}</p>
         <img src={image} alt="img" className={styles.img} />
@@ -97,6 +148,13 @@ const Posts: React.FC<PostsProps> = ({
           </div>
         ))}
       </div>
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        containerStyle={{
+          top: 120,
+        }}
+      />
       <div className={styles.addComment}>
         <img src={publishedImage} alt="" className={styles.addedImage} />
         <input type="text" placeholder="Написать комментарий..." />

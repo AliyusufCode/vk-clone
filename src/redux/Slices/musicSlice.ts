@@ -1,13 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
+type MusicType = {
+  image?: string;
+  name: string;
+  executor: string;
+  id: number;
+  audio: string;
+};
 
 const musicSlice = createSlice({
   name: "music",
   initialState: {
     currentTrackIndex: 0,
-    isPlaying: true,
-    audioRef: null,
+    isPlaying: false,
     isPause: true,
     currentTime: 0,
+    songs: [] as MusicType[],
   },
   reducers: {
     setCurrentTrackIndex(state, action) {
@@ -19,11 +26,12 @@ const musicSlice = createSlice({
     setIsPause(state, action) {
       state.isPause = action.payload;
     },
-    setAudioRef(state, action) {
-      state.audioRef = action.payload;
-    },
+
     setCurrentTime(state, action) {
       state.currentTime = action.payload;
+    },
+    setSongs(state, action) {
+      state.songs = action.payload;
     },
   },
 });
@@ -31,7 +39,7 @@ const musicSlice = createSlice({
 export const {
   setCurrentTrackIndex,
   setIsPlaying,
-  setAudioRef,
+  setSongs,
   setIsPause,
   setCurrentTime,
 } = musicSlice.actions;
