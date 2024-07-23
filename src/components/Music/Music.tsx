@@ -1,36 +1,61 @@
-// import { HiDotsHorizontal } from "react-icons/hi";
 import styles from "./Music.module.scss";
 import { FaPause } from "react-icons/fa6";
-import React, { useRef, useState } from "react";
+import { HiDotsHorizontal } from "react-icons/hi";
+import React, { useEffect, useRef, useState } from "react";
 import { FaPlay } from "react-icons/fa6";
 import { musicList } from "../../assets/Music/musicList";
+
 type MusicType = {
   image?: string;
   name: string;
   executor: string;
   id: number;
+  audio: string;
 };
+
 const Music: React.FC = () => {
-  const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
+  const [currentTrackIndex, setCurrentTrackIndex] = useState(Number);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [isPause, setIsPause] = useState(false);
   const audioRef = useRef(new Audio());
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (audioRef.current.duration) {
+        setCurrentTime(audioRef.current.currentTime);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const formatTime = (seconds: number) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = Math.floor(seconds % 60)
+      .toString()
+      .padStart(2, "0");
+    return `${minutes}:${remainingSeconds}`;
+  };
+
   const playTrack = (index: number) => {
     if (index === currentTrackIndex && isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      setCurrentTrackIndex(index);
     } else {
-      if (index !== currentTrackIndex) {
+      if (index !== currentTrackIndex || !isPlaying) {
         audioRef.current.src = musicList[index].audio;
         setCurrentTrackIndex(index);
+        audioRef.current.play();
+        setIsPlaying(true);
       }
-      audioRef.current.play();
-      setIsPlaying(true);
     }
   };
-
   const pauseTrack = () => {
     audioRef.current.pause();
     setIsPlaying(false);
+    setIsPause(true);
   };
 
   return (
@@ -39,7 +64,14 @@ const Music: React.FC = () => {
       <div className={styles.content}>
         {musicList.map((el: MusicType, index: number) => (
           <div className={styles.music} key={el.id}>
-            <span className={styles.layout}>
+            <span
+              className={styles.layout}
+              onClick={
+                isPlaying && currentTrackIndex === index
+                  ? () => pauseTrack()
+                  : () => playTrack(index)
+              }
+            >
               <img
                 src={
                   el.image ||
@@ -49,42 +81,52 @@ const Music: React.FC = () => {
                 className={styles.img}
               />
               {currentTrackIndex === index && isPlaying ? (
-                <FaPlay onClick={() => pauseTrack()} className={styles.play} />
+                <FaPause onClick={() => pauseTrack()} className={styles.play} />
               ) : (
-                <FaPause
-                  onClick={() => playTrack(index)}
-                  className={styles.play}
-                />
+                currentTrackIndex === index &&
+                isPause && (
+                  <FaPlay
+                    className={styles.play}
+                    onClick={() => playTrack(index)}
+                  />
+                )
               )}
 
               <div className={styles.infoMusic}>
                 <span style={{ color: "white" }}>
                   {el.name}
                   {currentTrackIndex === index && isPlaying && (
-                    <span style={{ color: "gray" }}>
-                      {el.executor.slice(0, 10)}
+                    <span style={{ color: "gray", marginLeft: 10 }}>
+                      {el.executor.slice(0, 10)}...
                     </span>
                   )}
                 </span>
                 {currentTrackIndex === index && isPlaying ? (
-                  <input
-                    type="range"
-                    value={
-                      (audioRef.current.currentTime /
-                        audioRef.current.duration) *
-                        100 || 0
-                    }
-                    // onChange={(e) => {
-                    //   const time =
-                    //     (e.target.value * audioRef.current.duration) / 100;
-                    //   audioRef.current.currentTime = time;
-                    // }}
-                  />
+                  <div className={styles.contentInput}>
+                    <input
+                      type="range"
+                      className={styles.input}
+                      value={
+                        (audioRef.current.currentTime /
+                          audioRef.current.duration) *
+                          100 || 0
+                      }
+                      onChange={(e: any) => {
+                        const time =
+                          (e.target.value * audioRef.current.duration) / 100;
+                        audioRef.current.currentTime = time;
+                      }}
+                    />
+                    <span className={styles.currentTime}>
+                      {formatTime(currentTime)}
+                    </span>
+                  </div>
                 ) : (
                   <span style={{ color: "gray" }}>{el.executor}</span>
                 )}
               </div>
             </span>
+            <HiDotsHorizontal className={styles.icon} />
           </div>
         ))}
       </div>
