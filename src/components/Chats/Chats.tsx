@@ -36,7 +36,7 @@ const Chats = () => {
         )}
       </div>
       {chatsList.map((el: ChatsType) => (
-        <Link to={`/im/${el.id}`} key={el.id}>
+        <Link to={`/im/${el.id}`} key={el.id} className={styles.link}>
           <div className={styles.сhats}>
             <img src={el.avatar} alt="img" />
             <div className={styles.infoChat}>

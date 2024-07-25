@@ -21,7 +21,6 @@ type MusicType = {
   id: number;
   audio: string;
 };
-
 const Music: React.FC = () => {
   const dispatch = useDispatch();
   const { currentTrackIndex, isPlaying, isPause, currentTime, songs } =
@@ -43,11 +42,25 @@ const Music: React.FC = () => {
 
     return () => clearInterval(interval);
   }, []);
+
   useEffect(() => {
-    return () => {
-      stopTrack();
+    const audio = audioRef.current;
+
+    const handleEnded = () => {
+      if (currentTrackIndex < songs.length - 1) {
+        playTrack(currentTrackIndex + 1);
+      } else {
+        stopTrack();
+      }
     };
-  }, []);
+
+    audio.addEventListener("ended", handleEnded);
+
+    return () => {
+      audio.removeEventListener("ended", handleEnded);
+    };
+  }, [currentTrackIndex, songs]);
+
   const formatTime = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = Math.floor(seconds % 60)
@@ -55,7 +68,6 @@ const Music: React.FC = () => {
       .padStart(2, "0");
     return `${minutes}:${remainingSeconds}`;
   };
-
   const playTrack = (index: number) => {
     if (index === currentTrackIndex && isPlaying) {
       audioRef.current.pause();
@@ -63,6 +75,7 @@ const Music: React.FC = () => {
       dispatch(setCurrentTrackIndex(index));
     } else {
       if (index !== currentTrackIndex || !isPlaying) {
+        audioRef.current.pause();
         audioRef.current.src = songs[index].audio;
         dispatch(setCurrentTrackIndex(index));
         audioRef.current.play();
@@ -75,6 +88,7 @@ const Music: React.FC = () => {
     dispatch(setIsPlaying(false));
     dispatch(setIsPause(true));
   };
+
   const stopTrack = () => {
     audioRef.current.pause();
     dispatch(setIsPlaying(false));
@@ -83,6 +97,7 @@ const Music: React.FC = () => {
 
     audioRef.current.currentTime = 0;
   };
+
   const handleClickDots = (id: any) => {
     setVisible(true);
     setSongDeleteId(id);
@@ -96,8 +111,9 @@ const Music: React.FC = () => {
     dispatch(setSongs(songs.filter((el: MusicType) => el.id !== id)));
     setVisible(false);
     setSongDeleteId(null);
+    stopTrack();
   };
-  console.log(currentTrackIndex);
+
   return (
     <div className={styles.container}>
       <span className={styles.head}>Треки</span>
@@ -128,7 +144,6 @@ const Music: React.FC = () => {
               }
             >
               <img
-                onClick={() => console.log(el.id)}
                 src={
                   el.image ||
                   "https://i.pinimg.com/564x/c1/7d/28/c17d2836efef2a8d4395c8a27f37e45d.jpg"

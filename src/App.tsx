@@ -12,7 +12,7 @@ import Services from "./components/Services/Services";
 import Chats from "./components/Chats/Chats";
 import Notifications from "./components/Notifications/Notifications";
 import Me from "./components/Me/Me";
-import Friends from "./components/Frends/Frends";
+import Friends from "./components/Frends/Friends";
 import Groups from "./components/Groups/Groups";
 import Empty from "./components/Empty/Empty";
 import Music from "./components/Music/Music";

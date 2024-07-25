@@ -1,4 +1,4 @@
-import styles from "./Frends.module.scss";
+import styles from "./Friends.module.scss";
 import { LiaSearchSolid } from "react-icons/lia";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";

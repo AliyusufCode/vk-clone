@@ -10,7 +10,7 @@ type MusicType = {
 const musicSlice = createSlice({
   name: "music",
   initialState: {
-    currentTrackIndex: 0,
+    currentTrackIndex: 132222222222,
     isPlaying: false,
     isPause: true,
     currentTime: 0,

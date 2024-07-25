@@ -66,7 +66,7 @@ const Posts: React.FC<PostsProps> = ({
 
   const copyText = () => {
     const currentUrl = window.location.href;
-    const text = `${currentUrl}?groupId=${groupId}`;
+    const text = `${currentUrl}groups/${groupId}`;
 
     if (copyRef.current) {
       navigator.clipboard

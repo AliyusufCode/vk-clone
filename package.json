@@ -20,6 +20,7 @@
     "react-router": "^6.25.0",
     "react-router-dom": "^6.25.0",
     "react-slick": "^0.30.2",
+    "redux-persist": "^6.0.0",
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
     "swiper": "^11.1.4",
