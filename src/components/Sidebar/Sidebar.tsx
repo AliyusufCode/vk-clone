@@ -26,7 +26,7 @@ const Sidebar = () => {
       {list.map((el) => (
         <div className={styles.content} key={el.id}>
           <Link to={el.link} className={styles.link}>
-            {el.icon && <el.icon key={el.link} className={styles.icon} />}
+            {el.icon && <el.icon key={el.id} className={styles.icon} />}
             <p>{el.title}</p>
           </Link>
         </div>

@@ -187,7 +187,7 @@ const HeaderMobile = () => {
           {listHeader.map((el: string, i) => (
             <span
               className={i === active ? styles.active : ""}
-              key={el}
+              key={i}
               onClick={() => setActive(i)}
             >
               {el}

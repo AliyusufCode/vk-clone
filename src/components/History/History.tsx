@@ -45,7 +45,7 @@ export default function App() {
           modules={[Pagination, Navigation]}
         >
           {historySlide.map((el) => (
-            <SwiperSlide key={el.img}>
+            <SwiperSlide key={el.id}>
               <Slide img={el.img} prev={el.prev} title={el.title} />
             </SwiperSlide>
           ))}
