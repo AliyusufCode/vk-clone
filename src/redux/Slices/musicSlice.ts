@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
 type MusicType = {
   image?: string;
   name: string;
@@ -7,30 +8,42 @@ type MusicType = {
   audio: string;
 };
 
+interface MusicState {
+  currentTrackIndex: number;
+  isPlaying: boolean;
+  isPause: boolean;
+  currentTime: number;
+  songs: MusicType[];
+  currentTrack: MusicType | null;
+}
+
+const initialState: MusicState = {
+  currentTrackIndex: -1,
+  isPlaying: false,
+  isPause: true,
+  currentTime: 0,
+  songs: [],
+  currentTrack: null,
+};
+
 const musicSlice = createSlice({
   name: "music",
-  initialState: {
-    currentTrackIndex: 132222222222,
-    isPlaying: false,
-    isPause: true,
-    currentTime: 0,
-    songs: [] as MusicType[],
-  },
+  initialState,
   reducers: {
-    setCurrentTrackIndex(state, action) {
+    setCurrentTrackIndex(state, action: PayloadAction<number>) {
       state.currentTrackIndex = action.payload;
+      state.currentTrack = state.songs[action.payload] || null;
     },
-    setIsPlaying(state, action) {
+    setIsPlaying(state, action: PayloadAction<boolean>) {
       state.isPlaying = action.payload;
     },
-    setIsPause(state, action) {
+    setIsPause(state, action: PayloadAction<boolean>) {
       state.isPause = action.payload;
     },
-
-    setCurrentTime(state, action) {
+    setCurrentTime(state, action: PayloadAction<number>) {
       state.currentTime = action.payload;
     },
-    setSongs(state, action) {
+    setSongs(state, action: PayloadAction<MusicType[]>) {
       state.songs = action.payload;
     },
   },

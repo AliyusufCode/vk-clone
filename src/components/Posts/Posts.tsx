@@ -18,7 +18,7 @@ export type PostsProps = {
   publishedImage: string;
   publishedName: string;
   timePublished: string;
-  body: string;
+  body?: string;
   groupId: number;
   image: string;
   likes: number;

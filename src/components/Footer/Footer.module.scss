@@ -9,8 +9,8 @@
   text-align: center;
   display: flex;
   z-index: 22222222222;
-  padding-top: 7px;
   .content {
+    padding-top: 4px;
     width: 100%;
     .icon {
       width: 27px;
@@ -23,7 +23,7 @@
     p {
       font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
         "Lucida Sans", Arial, sans-serif;
-      font-size: 12px;
+      font-size: 10px;
       cursor: pointer;
       font-weight: 600;
       margin: 0;

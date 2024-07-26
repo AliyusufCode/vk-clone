@@ -88,4 +88,57 @@ export const posts = [
       },
     ],
   },
+  {
+    publishedImage:
+      "https://i.pinimg.com/736x/95/1c/2d/951c2d09de37e35f5bf0130474637684.jpg",
+    publishedName: "История",
+    timePublished: "Вчера в 01:09",
+    body: "",
+    image:
+      "https://i.pinimg.com/564x/08/85/de/0885def4d956daa271c602654ea469e1.jpg",
+    likes: 323481,
+    commentsCount: 22531,
+    redirected: 9193,
+    views: 827,
+    id: 4,
+    groupId: 107,
+
+    comments: [
+      {
+        user: "Иван",
+        img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
+        comment: "сильно и точно!",
+        id: 7,
+      },
+    ],
+  },
+  {
+    publishedImage:
+      "https://i.pinimg.com/564x/17/e3/b0/17e3b024dead7b5d811bfdd38b4b008e.jpg",
+    publishedName: "ЧБД",
+    timePublished: "20 июля 14:12",
+    body: "Что было дальше?",
+    image:
+      "https://i.pinimg.com/564x/64/58/c9/6458c9ed5f8a35818844779671d336e7.jpg",
+    likes: 230990,
+    commentsCount: 16399,
+    redirected: 4444,
+    views: 503,
+    id: 5,
+    groupId: 203,
+    comments: [
+      {
+        user: "Иван",
+        img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
+        comment: "Жду новые выпуски",
+        id: 9,
+      },
+      {
+        user: "Анна",
+        img: "https://i.pinimg.com/564x/c1/6c/2a/c16c2a631e49da021d2f7590feb85526.jpg",
+        comment: "Смотрела все видосы)",
+        id: 10,
+      },
+    ],
+  },
 ];
