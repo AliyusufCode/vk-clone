@@ -7,7 +7,6 @@ import Home from "./components/Home/Home";
 import InterestingNews from "./components/InterestingNews/InterestingNews";
 import MenuNavigate from "./components/MenuNavigate/MenuNavigate";
 import Sidebar from "./components/Sidebar/Sidebar";
-
 import Services from "./components/Services/Services";
 import Chats from "./components/Chats/Chats";
 import Notifications from "./components/Notifications/Notifications";

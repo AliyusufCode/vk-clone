@@ -70,8 +70,8 @@
   .bottomContainer {
     display: flex;
     align-items: center;
+    width: 80vw;
     justify-content: space-between;
-    width: 100%;
     .buttons {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: rgb(161, 156, 156);
@@ -93,8 +93,8 @@
           background: rgb(63, 63, 63);
         }
         .icon {
-          width: 22px;
-          height: 22px;
+          width: 18px;
+          height: 18px;
         }
         span {
           font-size: 14px;
@@ -249,6 +249,57 @@
     }
     .icon {
       font-size: 22px;
+    }
+  }
+}
+
+@media (max-width: 411px) {
+  .bottomContainer {
+    display: flex;
+    align-items: center;
+    width: 82vw !important;
+    justify-content: space-between;
+    .buttons {
+      margin: 6px 0 !important;
+      .layout {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        justify-content: center;
+        background: rgb(54, 52, 52, 0.33);
+        padding: 2px 5px !important;
+        margin: 2px 7px !important;
+        margin-left: 0;
+        border-radius: 20px;
+        transition: background-color 0.3s;
+        &:hover {
+          background: rgb(63, 63, 63);
+        }
+        .icon {
+          width: 18px;
+          height: 18px;
+        }
+        span {
+          font-size: 12px !important;
+          margin-left: 5px;
+        }
+      }
+    }
+    .view {
+      display: flex;
+      align-items: center;
+      color: gray;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin-right: -215px;
+      margin: 0;
+      .iconView {
+        width: 15px;
+        height: 15px;
+      }
+      span {
+        font-size: 13px;
+        margin-left: 5px;
+      }
     }
   }
 }

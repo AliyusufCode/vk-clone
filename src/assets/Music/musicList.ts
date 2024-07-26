@@ -69,6 +69,7 @@ export const musicList = [
   {
     name: "ALONE",
     executor: "Savage",
+
     audio: savage,
     id: 8,
   },
@@ -82,6 +83,8 @@ export const musicList = [
     name: "Lose Yourself",
     executor: "Eminem",
     audio: eminem,
+    image:
+      "https://i.pinimg.com/564x/f0/1a/15/f01a15cb0c80110de7562afbaf770fb0.jpg",
     id: 10,
   },
 ];
