@@ -28,6 +28,7 @@ import { setCurrentTime, setSongs } from "./redux/Slices/musicSlice";
 import { musicList } from "./assets/Music/musicList";
 import MusicActive from "./components/MusicActive/MusicActive";
 import { useAudioPlayer } from "./utils/music";
+import PostComments from "./components/PostComments/PostComments";
 type MusicType = {
   image?: string;
   name: string;
@@ -161,6 +162,7 @@ function App() {
             <Route path="/im/:id" element={<OpenedChat />} />
             <Route path="/groups/:id" element={<OpenedGroup />} />
             <Route path="/image/:id" element={<OpenedPhoto />} />
+            <Route path="/post-comments" element={<PostComments />} />
           </Routes>
         </div>
       </div>

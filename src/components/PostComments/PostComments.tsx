@@ -1,49 +1,18 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import { posts } from "../../assets/Posts/posts";
+import styles from "./PostComments.module.scss";
+import { RootState } from "../../redux/store";
+import { Link } from "react-router-dom";
 import toast, { Toaster } from "react-hot-toast";
-import styles from "./Posts.module.scss";
-import { BiComment } from "react-icons/bi";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { TiArrowForwardOutline } from "react-icons/ti";
 import { HiOutlineEye } from "react-icons/hi";
-import { MdSend } from "react-icons/md";
 import { IoMdHeartEmpty } from "react-icons/io";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setPostCommentsId } from "../../redux/Slices/postSlice";
-export type Comment = {
-  user: string;
-  img: string;
-  id: number;
-  comment: string;
-};
-export type PostsProps = {
-  publishedImage: string;
-  publishedName: string;
-  timePublished: string;
-  body?: string;
-  groupId: number;
-  image: string;
-  likes: number;
-  commentsCount: number;
-  redirected: number;
-  views: number;
-  id?: number;
-  comments?: Comment[];
-};
-const Posts: React.FC<PostsProps> = ({
-  publishedImage,
-  publishedName,
-  timePublished,
-  body,
-  image,
-  likes,
-  id,
-  commentsCount,
-  redirected,
-  views,
-  groupId,
-  comments,
-}) => {
+import { useEffect, useRef, useState } from "react";
+import { MdSend } from "react-icons/md";
+const PostComments = () => {
+  const postId = useSelector((state: RootState) => state.post.postId);
+  const findPost = posts.find((el) => el.id === postId);
   const [visible, setVisible] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const closeElement = () => {
@@ -66,10 +35,9 @@ const Posts: React.FC<PostsProps> = ({
     };
   }, [visible]);
   const copyRef = useRef<HTMLSpanElement>(null);
-
   const copyText = () => {
     const currentUrl = window.location.href;
-    const text = `${currentUrl}groups/${groupId}`;
+    const text = `${currentUrl}groups/${findPost?.groupId}`;
 
     if (copyRef.current) {
       navigator.clipboard
@@ -84,27 +52,28 @@ const Posts: React.FC<PostsProps> = ({
     }
   };
   const [acitve, setActive] = useState(false);
-  const [like, SetLike] = useState(likes);
-  const dispatch = useDispatch();
+  const [like, SetLike] = useState(findPost?.likes);
   useEffect(() => {
-    SetLike(likes);
+    SetLike(findPost?.likes);
   }, []);
   const handleClickLiked = () => {
     setActive(!acitve);
-    acitve ? SetLike((prev) => prev - 1) : SetLike((prev) => prev + 1);
+    acitve
+      ? SetLike((prev: any) => prev - 1)
+      : SetLike((prev: any) => prev + 1);
   };
 
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link to={`/groups/${groupId}`}>
+        <Link to={`/groups/${findPost?.groupId}`}>
           <div className={styles.content}>
             <div>
-              <img src={publishedImage} alt="" />
+              <img src={findPost?.publishedImage} alt="" />
             </div>
             <div className={styles.info}>
-              <span>{publishedName}</span>
-              <p>{timePublished}</p>
+              <span>{findPost?.publishedName}</span>
+              <p>{findPost?.timePublished}</p>
             </div>
           </div>
         </Link>
@@ -121,8 +90,8 @@ const Posts: React.FC<PostsProps> = ({
         </div>
       )}
       <div className={styles.body}>
-        <p className={styles.title}>{body}</p>
-        <img src={image} alt="img" className={styles.img} />
+        <p className={styles.title}>{findPost?.body}</p>
+        <img src={findPost?.image} alt="img" className={styles.img} />
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.buttons}>
@@ -133,29 +102,20 @@ const Posts: React.FC<PostsProps> = ({
             <IoMdHeartEmpty className={styles.icon} />
             <span>{like}</span>
           </span>
-          <Link to={"/post-comments"}>
-            <span
-              className={styles.layout}
-              onClick={() => dispatch(setPostCommentsId(id))}
-            >
-              <BiComment className={styles.icon} />
-              <span>{commentsCount}</span>
-            </span>
-          </Link>
           <span className={styles.layout}>
             <TiArrowForwardOutline className={styles.icon} />
-            <span>{redirected}</span>
+            <span>{findPost?.redirected}</span>
           </span>
         </div>
         <div className={styles.view}>
           <HiOutlineEye className={styles.iconView} />
-          <span>{views}K</span>
+          <span>{findPost?.views}K</span>
         </div>
         <br />
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.line} />
-        {comments?.map((el: Comment) => (
+        {findPost?.comments.map((el) => (
           <div key={el.id} className={styles.comments}>
             <div className={styles.block}>
               <div>
@@ -177,7 +137,11 @@ const Posts: React.FC<PostsProps> = ({
         }}
       />
       <div className={styles.addComment}>
-        <img src={publishedImage} alt="" className={styles.addedImage} />
+        <img
+          src={findPost?.publishedImage}
+          alt=""
+          className={styles.addedImage}
+        />
         <input type="text" placeholder="Написать комментарий..." />
         <MdSend className={styles.sendIcon} />
       </div>
@@ -185,4 +149,4 @@ const Posts: React.FC<PostsProps> = ({
   );
 };
 
-export default Posts;
+export default PostComments;

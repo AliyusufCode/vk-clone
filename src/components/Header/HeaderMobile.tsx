@@ -80,6 +80,15 @@ const HeaderMobile = () => {
               </div>
             </>
           )}
+          {path === "/post-comments" && (
+            <>
+              <span onClick={() => navigate(-1)} className={styles.back}>
+                <GoArrowLeft className={styles.iconBack} />
+              </span>
+
+              <span>Запись на стене</span>
+            </>
+          )}
           {path === "/im" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
