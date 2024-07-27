@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { posts } from "../../assets/Posts/posts";
 import styles from "./PostComments.module.scss";
 import { RootState } from "../../redux/store";
@@ -10,11 +10,22 @@ import { HiOutlineEye } from "react-icons/hi";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
+import { setPost } from "../../redux/Slices/postSlice";
 const PostComments = () => {
-  const postId = useSelector((state: RootState) => state.post.postId);
-  const findPost = posts.find((el) => el.id === postId);
   const [visible, setVisible] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
+  const { post, postId } = useSelector((state: RootState) => state.post);
+  const findPost = posts.find((el) => el.id === postId);
+  const copyRef = useRef<HTMLSpanElement>(null);
+  const [acitve, setActive] = useState(false);
+  const [like, SetLike] = useState(post?.likes);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    SetLike(post?.likes);
+    dispatch(setPost(findPost));
+  }, []);
+
   const closeElement = () => {
     setVisible(false);
   };
@@ -34,10 +45,9 @@ const PostComments = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [visible]);
-  const copyRef = useRef<HTMLSpanElement>(null);
   const copyText = () => {
     const currentUrl = window.location.href;
-    const text = `${currentUrl}groups/${findPost?.groupId}`;
+    const text = `${currentUrl}groups/${post?.groupId}`;
 
     if (copyRef.current) {
       navigator.clipboard
@@ -51,11 +61,7 @@ const PostComments = () => {
         });
     }
   };
-  const [acitve, setActive] = useState(false);
-  const [like, SetLike] = useState(findPost?.likes);
-  useEffect(() => {
-    SetLike(findPost?.likes);
-  }, []);
+
   const handleClickLiked = () => {
     setActive(!acitve);
     acitve
@@ -66,14 +72,14 @@ const PostComments = () => {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
-        <Link to={`/groups/${findPost?.groupId}`}>
+        <Link to={`/groups/${post?.groupId}`}>
           <div className={styles.content}>
             <div>
-              <img src={findPost?.publishedImage} alt="" />
+              <img src={post?.publishedImage} alt="" />
             </div>
             <div className={styles.info}>
-              <span>{findPost?.publishedName}</span>
-              <p>{findPost?.timePublished}</p>
+              <span>{post?.publishedName}</span>
+              <p>{post?.timePublished}</p>
             </div>
           </div>
         </Link>
@@ -90,8 +96,8 @@ const PostComments = () => {
         </div>
       )}
       <div className={styles.body}>
-        <p className={styles.title}>{findPost?.body}</p>
-        <img src={findPost?.image} alt="img" className={styles.img} />
+        <p className={styles.title}>{post?.body}</p>
+        <img src={post?.image} alt="img" className={styles.img} />
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.buttons}>
@@ -104,30 +110,36 @@ const PostComments = () => {
           </span>
           <span className={styles.layout}>
             <TiArrowForwardOutline className={styles.icon} />
-            <span>{findPost?.redirected}</span>
+            <span>{post?.redirected}</span>
           </span>
         </div>
         <div className={styles.view}>
           <HiOutlineEye className={styles.iconView} />
-          <span>{findPost?.views}K</span>
+          <span>{post?.views}K</span>
         </div>
         <br />
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.line} />
-        {findPost?.comments.map((el) => (
-          <div key={el.id} className={styles.comments}>
-            <div className={styles.block}>
-              <div>
-                <img src={el.img} alt="img" />
+        {post.comments &&
+          post?.comments.map((el) => (
+            <div key={el.id} className={styles.comments}>
+              <div className={styles.block}>
+                <div>
+                  <img src={el.img} alt="img" />
+                </div>
+                <div className={styles.info}>
+                  <span>{el.user}</span>
+                  <p>{el.comment}</p>
+                  <p className={styles.time}>{el.createdAt}</p>
+                </div>
               </div>
-              <div className={styles.info}>
-                <span>{el.user}</span>
-                <p>{el.comment}</p>
+              <div className={styles.likeContent}>
+                <IoMdHeartEmpty className={styles.icon} />
+                <span>{el.countLiked}</span>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
       <Toaster
         position="top-center"
@@ -137,11 +149,7 @@ const PostComments = () => {
         }}
       />
       <div className={styles.addComment}>
-        <img
-          src={findPost?.publishedImage}
-          alt=""
-          className={styles.addedImage}
-        />
+        <img src={post?.publishedImage} alt="" className={styles.addedImage} />
         <input type="text" placeholder="Написать комментарий..." />
         <MdSend className={styles.sendIcon} />
       </div>

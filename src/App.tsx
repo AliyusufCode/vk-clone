@@ -162,7 +162,7 @@ function App() {
             <Route path="/im/:id" element={<OpenedChat />} />
             <Route path="/groups/:id" element={<OpenedGroup />} />
             <Route path="/image/:id" element={<OpenedPhoto />} />
-            <Route path="/post-comments" element={<PostComments />} />
+            {<Route path="/post-comments" element={<PostComments />} />}
           </Routes>
         </div>
       </div>
