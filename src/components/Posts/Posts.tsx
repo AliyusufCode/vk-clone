@@ -80,7 +80,15 @@ const Posts: React.FC<PostsProps> = ({
         });
     }
   };
-
+  const [acitve, setActive] = useState(false);
+  const [like, SetLike] = useState(likes);
+  useEffect(() => {
+    SetLike(likes);
+  }, []);
+  const handleClickLiked = () => {
+    setActive(!acitve);
+    acitve ? SetLike((prev) => prev - 1) : SetLike((prev) => prev + 1);
+  };
   return (
     <div className={styles.container}>
       <header className={styles.header}>
@@ -113,9 +121,12 @@ const Posts: React.FC<PostsProps> = ({
       </div>
       <div className={styles.bottomContainer}>
         <div className={styles.buttons}>
-          <span className={styles.layout}>
+          <span
+            onClick={handleClickLiked}
+            className={acitve ? styles.layoutLike : styles.layout}
+          >
             <IoMdHeartEmpty className={styles.icon} />
-            <span>{likes}</span>
+            <span>{like}</span>
           </span>
           <span className={styles.layout}>
             <BiComment className={styles.icon} />

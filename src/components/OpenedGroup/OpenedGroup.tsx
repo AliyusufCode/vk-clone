@@ -34,7 +34,7 @@ export const OpenedGroup = () => {
       </div>
       {post.length ? (
         post.map((el) => (
-          <div className={styles.postsContent}>
+          <div className={styles.postsContent} key={el.id}>
             <span className={styles.group}>
               <div className={styles.topGroup}>
                 <div style={{ display: "flex" }}>
