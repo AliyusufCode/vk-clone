@@ -18,7 +18,7 @@ const PostComments = () => {
   const findPost = posts.find((el) => el.id === postId);
   const copyRef = useRef<HTMLSpanElement>(null);
   const [acitve, setActive] = useState(false);
-  const [like, SetLike] = useState(post?.likes);
+  const [like, SetLike] = useState(findPost?.likes);
   const dispatch = useDispatch();
 
   useEffect(() => {
