@@ -11,20 +11,50 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
 import { setPost } from "../../redux/Slices/postSlice";
+import { addComment, Comment } from "../../redux/Slices/commentSlice";
 const PostComments = () => {
   const [visible, setVisible] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
   const { post, postId } = useSelector((state: RootState) => state.post);
+  const { comments } = useSelector((state: RootState) => state.comment);
   const findPost = posts.find((el) => el.id === postId);
   const copyRef = useRef<HTMLSpanElement>(null);
   const [acitve, setActive] = useState(false);
   const [like, SetLike] = useState(findPost?.likes);
   const dispatch = useDispatch();
-
   useEffect(() => {
-    SetLike(post?.likes);
+    SetLike(findPost?.likes);
     dispatch(setPost(findPost));
-  }, []);
+    dispatch(addComment(findPost?.comments));
+  }, [comments]);
+  let commentIdCounter = 2120;
+
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputChange = (event: any) => {
+    setInputValue(event.target.value);
+  };
+  const getCurrentTime = () => {
+    const now = new Date();
+    return `${now.getHours()}:${now.getMinutes()}`;
+  };
+
+  const addCommentatiy = () => {
+    dispatch(
+      addComment([
+        {
+          postId: findPost?.postId,
+          id: Date.now(),
+          img: "/image.png",
+          user: "YOU",
+          comment: inputValue,
+          createdAt: getCurrentTime(),
+          countLiked: 0,
+        },
+      ])
+    );
+    setInputValue("");
+  };
 
   const closeElement = () => {
     setVisible(false);
@@ -61,6 +91,7 @@ const PostComments = () => {
         });
     }
   };
+  console.log(comments);
 
   const handleClickLiked = () => {
     setActive(!acitve);
@@ -121,25 +152,28 @@ const PostComments = () => {
       </div>
       <div className={styles.commentsContainer}>
         <div className={styles.line} />
-        {post.comments &&
-          post?.comments.map((el) => (
-            <div key={el.id} className={styles.comments}>
-              <div className={styles.block}>
-                <div>
-                  <img src={el.img} alt="img" />
+        {Array.isArray(comments) &&
+          comments.length > 0 &&
+          comments
+            .filter((el: Comment) => el.postId === findPost?.postId)
+            .map((el: Comment) => (
+              <div key={el.id} className={styles.comments}>
+                <div className={styles.block}>
+                  <div>
+                    <img src={el.img} alt="img" />
+                  </div>
+                  <div className={styles.info}>
+                    <span>{el.user}</span>
+                    <p>{el.comment}</p>
+                    <p className={styles.time}>{el.createdAt}</p>
+                  </div>
                 </div>
-                <div className={styles.info}>
-                  <span>{el.user}</span>
-                  <p>{el.comment}</p>
-                  <p className={styles.time}>{el.createdAt}</p>
+                <div className={styles.likeContent}>
+                  <IoMdHeartEmpty className={styles.icon} />
+                  <span>{el.countLiked !== 0 && el.countLiked}</span>
                 </div>
               </div>
-              <div className={styles.likeContent}>
-                <IoMdHeartEmpty className={styles.icon} />
-                <span>{el.countLiked}</span>
-              </div>
-            </div>
-          ))}
+            ))}
       </div>
       <Toaster
         position="top-center"
@@ -149,9 +183,14 @@ const PostComments = () => {
         }}
       />
       <div className={styles.addComment}>
-        <img src={post?.publishedImage} alt="" className={styles.addedImage} />
-        <input type="text" placeholder="Написать комментарий..." />
-        <MdSend className={styles.sendIcon} />
+        <img src={"/image.png"} alt="" className={styles.addedImage} />
+        <input
+          type="text"
+          placeholder="Написать комментарий..."
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <MdSend className={styles.sendIcon} onClick={() => addCommentatiy()} />
       </div>
     </div>
   );

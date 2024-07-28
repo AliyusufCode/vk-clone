@@ -12,6 +12,7 @@ export const posts = [
     redirected: 923,
     views: 92,
     id: 1,
+    postId: 1,
     groupId: 104,
     comments: [
       {
@@ -19,6 +20,7 @@ export const posts = [
         img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
         comment: "Отличный фильм, рекомендую!",
         createdAt: "сегодня в 16:12",
+        postId: 1,
         id: 1,
       },
       {
@@ -26,6 +28,7 @@ export const posts = [
         img: "https://i.pinimg.com/564x/c1/6c/2a/c16c2a631e49da021d2f7590feb85526.jpg",
         comment: "Трогательный фильм...",
         createdAt: "вчера в 14:07",
+        postId: 1,
         countLiked: 2,
         id: 2,
       },
@@ -43,13 +46,14 @@ export const posts = [
     commentsCount: 549,
     redirected: 233,
     views: 34,
+    postId: 2,
     id: 2,
     groupId: 102,
-
     comments: [
       {
         user: "Иван Кузнецов",
         img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
+        postId: 2,
         comment: "Я психолог",
         createdAt: "сегодня в 12:12",
         id: 3,
@@ -57,6 +61,7 @@ export const posts = [
       {
         user: "Анна",
         img: "https://i.pinimg.com/564x/c1/6c/2a/c16c2a631e49da021d2f7590feb85526.jpg",
+        postId: 2,
         comment: "Хороший пост",
         createdAt: "сегодня в 13:29",
         countLiked: 2,
@@ -76,6 +81,7 @@ export const posts = [
     commentsCount: 1224,
     redirected: 993,
     views: 87,
+    postId: 3,
     id: 3,
     groupId: 104,
 
@@ -84,6 +90,7 @@ export const posts = [
         user: "Иван Кузнецов",
         img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
         comment: "Люблю матрицу,смотрел все части",
+        postId: 3,
         createdAt: "24 июля в 14:11",
         countLiked: 11,
         id: 5,
@@ -93,6 +100,7 @@ export const posts = [
         img: "https://i.pinimg.com/564x/c1/6c/2a/c16c2a631e49da021d2f7590feb85526.jpg",
         comment: "Мне понравилось.",
         createdAt: "23 июля в 16:12",
+        postId: 3,
         countLiked: 2,
         id: 6,
       },
@@ -110,6 +118,7 @@ export const posts = [
     commentsCount: 22531,
     redirected: 9193,
     views: 827,
+    postId: 4,
     id: 4,
     groupId: 107,
 
@@ -119,6 +128,7 @@ export const posts = [
         img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
         comment: "сильно и точно!",
         createdAt: "сегодня в 07:14",
+        postId: 4,
         countLiked: 2,
         id: 7,
       },
@@ -136,6 +146,7 @@ export const posts = [
     commentsCount: 16399,
     redirected: 4444,
     views: 503,
+    postId: 5,
     id: 5,
     groupId: 203,
     comments: [
@@ -144,6 +155,7 @@ export const posts = [
         img: "https://i.pinimg.com/564x/60/b4/7e/60b47e2dfdbe3f0e2adf74129fbea3b0.jpg",
         comment: "Жду новые выпуски",
         createdAt: "вчера в 02:22",
+        postId: 5,
         id: 9,
       },
       {
@@ -151,6 +163,7 @@ export const posts = [
         img: "https://i.pinimg.com/564x/c1/6c/2a/c16c2a631e49da021d2f7590feb85526.jpg",
         comment: "Смотрела все видосы)",
         createdAt: "вчера в 03:48",
+        postId: 5,
         countLiked: 2,
         id: 10,
       },

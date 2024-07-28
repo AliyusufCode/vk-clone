@@ -102,3 +102,8 @@
     display: none !important;
   }
 }
+@media (min-width: 520px) {
+  .layout {
+    display: none;
+  }
+}
