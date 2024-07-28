@@ -27,7 +27,6 @@ const PostComments = () => {
     dispatch(setPost(findPost));
     dispatch(addComment(findPost?.comments));
   }, [comments]);
-  let commentIdCounter = 2120;
 
   const [inputValue, setInputValue] = useState("");
 
