@@ -7,6 +7,9 @@ import { HiOutlineEye } from "react-icons/hi";
 import { useLocation } from "react-router";
 import { allGroupList } from "../../assets/Groups/allGroups";
 import { posts } from "../../assets/Posts/posts";
+import { Link } from "react-router-dom";
+import { setPostCommentsId } from "../../redux/Slices/postSlice";
+import { useDispatch } from "react-redux";
 
 export const OpenedGroup = () => {
   const location = useLocation();
@@ -15,7 +18,7 @@ export const OpenedGroup = () => {
   const lastElement = pathElements[pathElements.length - 1];
   const group = allGroupList.find((el) => el.id.toString() === lastElement);
   const post = posts.filter((el) => el.groupId.toString() === lastElement);
-
+  const dispatch = useDispatch();
   return (
     <div className={styles.container}>
       <div className={styles.bh}>
@@ -57,10 +60,15 @@ export const OpenedGroup = () => {
                   <IoMdHeartEmpty className={styles.icon} />
                   <span>{el?.likes}</span>
                 </span>
-                <span className={styles.layout}>
-                  <BiComment className={styles.icon} />
-                  <span>{el?.commentsCount}</span>
-                </span>
+                <Link to={"/post-comments"}>
+                  <span
+                    className={styles.layout}
+                    onClick={() => dispatch(setPostCommentsId(el.id))}
+                  >
+                    <BiComment className={styles.icon} />
+                    <span>{el?.commentsCount}</span>
+                  </span>
+                </Link>
                 <span className={styles.layout}>
                   <TiArrowForwardOutline className={styles.icon} />
                   <span>{el?.redirected}</span>

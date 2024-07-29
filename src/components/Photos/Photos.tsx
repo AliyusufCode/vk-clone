@@ -10,7 +10,7 @@ const Photos = () => {
   return (
     <div className={styles.container}>
       {photosList.map((el: PhotosList) => (
-        <Link key={el.id} to={`/image/${el.id}`}>
+        <Link className={styles.link} key={el.id} to={`/image/${el.id}`}>
           <img src={el.image} alt="img" />
         </Link>
       ))}

@@ -11,7 +11,9 @@
   margin-top: 65px;
   width: 100%;
   margin: 65px 10px;
-
+  &:last-child {
+    padding-bottom: 560px !important;
+  }
   .profile {
     margin: 0 5px;
     display: flex;

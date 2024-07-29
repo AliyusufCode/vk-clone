@@ -48,6 +48,11 @@
     opacity: 1;
     animation: slideIn 0.3s ease-in-out;
   }
+  .link {
+    &:last-child {
+      padding-bottom: 60px;
+    }
+  }
 
   .сhats {
     display: flex;

@@ -5,6 +5,11 @@
   margin: 65px 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   max-width: 500px;
+  .link {
+    &:last-child {
+      padding-bottom: 60px;
+    }
+  }
 }
 
 .container img {

@@ -19,6 +19,7 @@ const PostComments = () => {
   const { comments } = useSelector((state: RootState) => state.comment);
   const findPost = posts.find((el) => el.id === postId);
   const copyRef = useRef<HTMLSpanElement>(null);
+  const endOfCommentsRef = useRef<HTMLDivElement | null>(null);
   const [acitve, setActive] = useState(false);
   const [like, SetLike] = useState(findPost?.likes);
   const dispatch = useDispatch();
@@ -26,6 +27,9 @@ const PostComments = () => {
     SetLike(findPost?.likes);
     dispatch(setPost(findPost));
     dispatch(addComment(findPost?.comments));
+    if (endOfCommentsRef.current) {
+      endOfCommentsRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   }, [comments]);
 
   const [inputValue, setInputValue] = useState("");
@@ -90,7 +94,6 @@ const PostComments = () => {
         });
     }
   };
-  console.log(comments);
 
   const handleClickLiked = () => {
     setActive(!acitve);
@@ -154,8 +157,8 @@ const PostComments = () => {
         {Array.isArray(comments) &&
           comments.length > 0 &&
           comments
-            .filter((el: Comment) => el.postId === findPost?.postId)
-            .map((el: Comment) => (
+            .filter((el) => el.postId === findPost?.postId)
+            .map((el) => (
               <div key={el.id} className={styles.comments}>
                 <div className={styles.block}>
                   <div>
@@ -173,6 +176,8 @@ const PostComments = () => {
                 </div>
               </div>
             ))}
+        {/* Реф для прокрутки к последнему комментарию */}
+        <div ref={endOfCommentsRef} />
       </div>
       <Toaster
         position="top-center"
