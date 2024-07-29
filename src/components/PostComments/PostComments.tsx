@@ -11,7 +11,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { useEffect, useRef, useState } from "react";
 import { MdSend } from "react-icons/md";
 import { setPost } from "../../redux/Slices/postSlice";
-import { addComment, Comment } from "../../redux/Slices/commentSlice";
+import { addComment } from "../../redux/Slices/commentSlice";
 const PostComments = () => {
   const [visible, setVisible] = useState(false);
   const popupRef = useRef<HTMLDivElement | null>(null);
