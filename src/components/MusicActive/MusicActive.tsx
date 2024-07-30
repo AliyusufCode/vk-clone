@@ -5,6 +5,7 @@ import { IoMdClose } from "react-icons/io";
 import { TbPlayerTrackNextFilled } from "react-icons/tb";
 import { useDispatch } from "react-redux";
 import { setCurrentTrackIndex } from "../../redux/Slices/musicSlice";
+import { Link } from "react-router-dom";
 
 const MusicActive = ({
   isPlaying,
@@ -30,10 +31,12 @@ const MusicActive = ({
           onClick={() => playTrack(currentTrackIndex)}
         />
       )}
-      <div>
-        <span>{currentTrack?.name}</span>
-        <p>{currentTrack?.executor}</p>
-      </div>
+      <Link to={"/audio"}>
+        <div>
+          <span style={{ color: "white" }}>{currentTrack?.name}</span>
+          <p>{currentTrack?.executor}</p>
+        </div>
+      </Link>
       {isPlaying ? (
         <TbPlayerTrackNextFilled
           className={styles.icon}
