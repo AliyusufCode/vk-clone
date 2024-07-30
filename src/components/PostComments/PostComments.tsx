@@ -191,6 +191,7 @@ const PostComments = () => {
       <div className={styles.addComment}>
         <img src={"/image.png"} alt="" className={styles.addedImage} />
         <input
+          className={styles.input}
           type="text"
           placeholder="Написать комментарий..."
           value={inputValue}
