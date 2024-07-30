@@ -4,9 +4,10 @@
   margin: 0 auto;
   display: flex;
   overflow: auto;
-  margin-bottom: 60px;
 }
-
+* {
+  -webkit-tap-highlight-color: transparent;
+}
 .content {
   display: flex;
   justify-content: space-between;

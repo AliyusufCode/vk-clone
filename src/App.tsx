@@ -109,7 +109,16 @@ function App() {
     <div>
       <Header />
       <HeaderMobile />
-      <div className="app">
+      <div
+        className="app"
+        style={{
+          marginBottom: path.startsWith("/im/")
+            ? "60px"
+            : currentTrack
+            ? "90px"
+            : "60px",
+        }}
+      >
         <Sidebar />
         <div className="content">
           <Routes>
