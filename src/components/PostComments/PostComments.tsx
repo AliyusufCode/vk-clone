@@ -176,7 +176,6 @@ const PostComments = () => {
                 </div>
               </div>
             ))}
-        {/* Реф для прокрутки к последнему комментарию */}
         <div ref={endOfCommentsRef} />
       </div>
       <Toaster

@@ -206,27 +206,27 @@
   }
   .addComment {
     position: relative;
-    width: 90%;
-    padding-top: 20px;
-    padding-left: 20px;
-    margin-bottom: 40px;
+    width: 100vw;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     .addedImage {
       width: 32px;
+      margin-left: 14px;
       height: 32px;
       border-radius: 50%;
     }
     input {
       outline: none;
-      margin: 0 20px;
+      margin: 0px;
       padding-left: 12px;
       height: 28px;
       color: white;
+      width: 100%;
       background: none;
       border: 1px solid rgb(77, 77, 77);
       border-radius: 6px;
-      width: 60%;
+      width: 70%;
     }
     .sendIcon {
       width: 20px;
