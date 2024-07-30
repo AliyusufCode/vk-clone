@@ -1,25 +1,22 @@
 import styles from "./HeaderMobile.module.scss";
-// import { HiOutlinePlusCircle } from "react-icons/hi2";
-// import { CgSearch } from "react-icons/cg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoMdClose } from "react-icons/io";
 import { LiaSearchSolid } from "react-icons/lia";
-// import { RxHamburgerMenu } from "react-icons/rx";
 import { useLocation, useNavigate } from "react-router-dom";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { GoArrowLeft } from "react-icons/go";
 import { chatsList } from "../../assets/Chats/chatsList";
+import HeaderTitleSKeleton from "../Skeletons/HeaderTitleSKeleton";
 
 const HeaderMobile = () => {
   const location = useLocation();
   const path = location.pathname;
   const pathElements = path.split("/");
   const lastElement = pathElements[pathElements.length - 1];
-
-  console.log(lastElement);
   const navigate = useNavigate();
   const [active, setActive] = useState(0);
   const [inputValue, setInputValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
@@ -32,7 +29,23 @@ const HeaderMobile = () => {
   const listHeader = ["Новости", "Для вас"];
 
   const chat = chatsList.find((el) => el.id.toString() === lastElement);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
 
+    return () => clearTimeout(timer);
+  }, []);
+  const listHeaderTitle = [
+    { link: "/", title: "Главная", id: 1 },
+    { link: "/services", title: "Сервисы", id: 2 },
+    { link: "/notifications", title: "Уведомления", id: 3 },
+    { link: "/me", title: "Ещё", id: 4 },
+    { link: "/clip", title: "Клипы", id: 5 },
+    { link: "/games", title: "Игры", id: 6 },
+    { link: "/steps", title: "Шаги", id: 7 },
+    { link: "/acquaintance", title: "Знакомства", id: 8 },
+  ];
   return (
     <div
       className={
@@ -40,15 +53,11 @@ const HeaderMobile = () => {
       }
     >
       <div className={styles.head}>
-        {path === "/" && <span>Главная</span>}
-        {path === "/services" && <span>Сервисы</span>}
-
-        {path === "/notifications" && <span>Уведомления</span>}
-        {path === "/me" && <span>Ещё</span>}
-        {path === "/clip" && <span>Клипы</span>}
-        {path === "/games" && <span>Игры</span>}
-        {path === "/steps" && <span>Шаги</span>}
-        {path === "/acquaintance" && <span>Знакомства</span>}
+        {isLoading
+          ? [...new Array(1)].map((_, i) => <HeaderTitleSKeleton key={i} />)
+          : listHeaderTitle.map(
+              (el) => path === el.link && <span key={el.id}>{el.title}</span>
+            )}
         {path.startsWith("/image/") && (
           <div>
             <span onClick={() => navigate(-1)} className={styles.back}>
@@ -85,7 +94,6 @@ const HeaderMobile = () => {
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
               </span>
-
               <span>Запись на стене</span>
             </>
           )}
@@ -94,7 +102,6 @@ const HeaderMobile = () => {
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
               </span>
-
               <span>Чаты</span>
             </>
           )}

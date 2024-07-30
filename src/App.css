@@ -104,3 +104,14 @@
     display: none;
   }
 }
+.chatSkeleton {
+  width: fit-content;
+  height: auto;
+  width: 90vw;
+  margin: 0 auto;
+  margin: 4px;
+  margin-left: 20px;
+}
+.inputSkeleton {
+  margin: 0 4px;
+}
