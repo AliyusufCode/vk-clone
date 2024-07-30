@@ -232,6 +232,7 @@
       width: 20px;
       cursor: pointer;
       height: 20px;
+      margin-right: 20px;
     }
   }
   .popup {
@@ -301,5 +302,15 @@
         margin-left: 5px;
       }
     }
+  }
+  input {
+    outline: none;
+    margin: 0px;
+    padding-left: 12px;
+    height: 28px;
+    background: none;
+    border: 1px solid rgb(77, 77, 77);
+    border-radius: 6px;
+    width: 60% !important;
   }
 }
