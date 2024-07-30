@@ -79,6 +79,7 @@
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       color: rgb(161, 156, 156);
       display: flex;
+      width: 100%;
       align-items: center;
       margin: 10px 0;
       .layout {
@@ -133,11 +134,12 @@
       align-items: center;
       color: gray;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin-right: -215px;
       margin: 0;
+      margin-right: 10px;
       .iconView {
         width: 15px;
         height: 15px;
+        margin-top: 1px;
       }
       span {
         font-size: 13px;
@@ -262,65 +264,35 @@
         margin: 0;
       }
     }
-    .view {
-      margin-right: -25px !important;
-      .iconView {
-        width: 15px;
-        height: 15px;
-      }
-      span {
-        font-size: 13px;
-        margin-left: 5px;
-      }
-    }
+
     .icon {
       font-size: 22px;
     }
   }
 }
 
-@media (max-width: 411px) {
+@media (max-width: 451px) {
   .bottomContainer {
-    width: 85vw !important;
-    justify-content: space-between;
     .buttons {
       margin: 6px 0 !important;
       .layout {
-        padding: 3px 5px !important;
-        .icon {
-          width: 14px !important;
-          height: 14px !important;
-        }
         span {
-          font-size: 10px !important;
-          margin-left: 5px;
+          font-size: 12px !important;
         }
       }
       .layoutLike {
-        padding: 3px 5px !important;
-        .icon {
-          width: 14px !important;
-          height: 14px !important;
-        }
         span {
-          font-size: 10px !important;
+          font-size: 12px !important;
           margin-left: 5px;
         }
       }
     }
     .view {
-      display: flex;
-      align-items: center;
       color: gray;
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      margin-right: -15px !important;
       margin: 0;
-      .iconView {
-        width: 13px !important;
-        height: 13px !important;
-      }
       span {
-        font-size: 10px !important;
+        font-size: 12px !important;
         margin-left: 5px;
       }
     }
