@@ -42,7 +42,10 @@ const PostComments = () => {
     return `${now.getHours()}:${now.getMinutes()}`;
   };
 
-  const addCommentatiy = () => {
+  const addCommentPost = () => {
+    if (!inputValue) {
+      return;
+    }
     dispatch(
       addComment([
         {
@@ -193,7 +196,7 @@ const PostComments = () => {
           value={inputValue}
           onChange={handleInputChange}
         />
-        <MdSend className={styles.sendIcon} onClick={() => addCommentatiy()} />
+        <MdSend className={styles.sendIcon} onClick={() => addCommentPost()} />
       </div>
     </div>
   );
