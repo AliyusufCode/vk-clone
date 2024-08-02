@@ -18,8 +18,17 @@
   }
   .bottom {
     display: flex;
-    width: 100%;
+    width: 110%;
     justify-content: space-around !important;
+    span {
+      font-size: 30px;
+      font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+      color: white;
+      &:first-child {
+        margin-left: 40px;
+      }
+    }
   }
   span {
     font-size: 30px;

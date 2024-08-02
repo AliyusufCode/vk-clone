@@ -7,6 +7,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { GoArrowLeft } from "react-icons/go";
 import { chatsList } from "../../assets/Chats/chatsList";
 import HeaderTitleSKeleton from "../Skeletons/HeaderTitleSKeleton";
+import HeaderListSkeleton from "../Skeletons/HeaderListSkeleton";
 
 const HeaderMobile = () => {
   const location = useLocation();
@@ -29,13 +30,15 @@ const HeaderMobile = () => {
   const listHeader = ["Новости", "Для вас"];
 
   const chat = chatsList.find((el) => el.id.toString() === lastElement);
+
   useEffect(() => {
+    setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 1000);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [path]);
   const listHeaderTitle = [
     { link: "/", title: "Главная", id: 1 },
     { link: "/services", title: "Сервисы", id: 2 },
@@ -54,7 +57,11 @@ const HeaderMobile = () => {
     >
       <div className={styles.head}>
         {isLoading
-          ? [...new Array(1)].map((_, i) => <HeaderTitleSKeleton key={i} />)
+          ? [...new Array(1)].map((_, i) => (
+              <div className="headerSkeleton">
+                <HeaderTitleSKeleton key={i} />
+              </div>
+            ))
           : listHeaderTitle.map(
               (el) => path === el.link && <span key={el.id}>{el.title}</span>
             )}
@@ -66,7 +73,7 @@ const HeaderMobile = () => {
           </div>
         )}
         <div className={styles.icons}>
-          {path === "/groups" && (
+          {path === "/groups" && !isLoading && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -89,7 +96,7 @@ const HeaderMobile = () => {
               </div>
             </>
           )}
-          {path === "/post-comments" && (
+          {path === "/post-comments" && !isLoading && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -97,7 +104,7 @@ const HeaderMobile = () => {
               <span>Запись на стене</span>
             </>
           )}
-          {path === "/im" && (
+          {path === "/im" && !isLoading && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -105,7 +112,7 @@ const HeaderMobile = () => {
               <span>Чаты</span>
             </>
           )}
-          {path === "/market" && (
+          {path === "/market" && !isLoading && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -128,25 +135,25 @@ const HeaderMobile = () => {
               </div>
             </>
           )}
-          {path === "/friends" && (
+          {path === "/friends" && !isLoading && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Все друзья</span>
             </span>
           )}
-          {path === "/help" && (
+          {path === "/help" && !isLoading && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Помощь</span>
             </span>
           )}
-          {path === "/audio" && (
+          {path === "/audio" && !isLoading && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span> Моя музыка</span>
             </span>
           )}
-          {path === "/photos" && (
+          {path === "/photos" && !isLoading && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Мои фотографии</span>
@@ -200,15 +207,21 @@ const HeaderMobile = () => {
       </div>
       {path === "/" && (
         <div className={styles.bottom}>
-          {listHeader.map((el: string, i) => (
-            <span
-              className={i === active ? styles.active : ""}
-              key={i}
-              onClick={() => setActive(i)}
-            >
-              {el}
-            </span>
-          ))}
+          {isLoading
+            ? [...new Array(1)].map((_, i) => (
+                <div className="headerListSkeleton">
+                  <HeaderListSkeleton key={i} />
+                </div>
+              ))
+            : listHeader.map((el: string, i) => (
+                <span
+                  className={i === active ? styles.active : ""}
+                  key={i}
+                  onClick={() => setActive(i)}
+                >
+                  {el}
+                </span>
+              ))}
         </div>
       )}
     </div>

@@ -115,3 +115,23 @@
 .inputSkeleton {
   margin: 0 4px;
 }
+.headerSkeleton {
+  position: relative;
+  left: -140px;
+}
+.headerListSkeleton {
+  justify-content: center;
+  margin-left: 30px;
+  margin-bottom: -5px;
+}
+.historySkeleton {
+  margin-left: -22px;
+}
+.postsSkeleton {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+.servicesSkeleton {
+  margin-left: -10px;
+}

@@ -50,7 +50,7 @@ const Chats = () => {
         )}
       </div>
       {isLoading
-        ? [...new Array(9)].map((_, i) => <ChatSkeleton key={i} />)
+        ? [...new Array(11)].map((_, i) => <ChatSkeleton key={i} />)
         : chatsList.map((el: ChatsType) => (
             <Link to={`/im/${el.id}`} key={el.id} className={styles.link}>
               <div className={styles.сhats}>

@@ -2,15 +2,15 @@ import ContentLoader from "react-content-loader";
 
 const HeaderTitleSKeleton = (props: any) => (
   <ContentLoader
-    speed={1}
+    speed={2}
     width={500}
-    height={42}
-    viewBox="0 0 500 42"
-    backgroundColor="#5f5d5d"
-    foregroundColor="#919191"
+    height={37}
+    viewBox="0 0 500 49"
+    backgroundColor="#2c2c2c"
+    foregroundColor="#d3d3d3"
     {...props}
   >
-    <rect x="115" y="5" rx="8" ry="8" width="217" height="24" />
+    <rect x="115" y="5" rx="8" ry="8" width="217" height="40" />
   </ContentLoader>
 );
 

@@ -9,11 +9,21 @@ import "swiper/css/navigation";
 import styles from "./History.module.scss";
 
 import { Pagination, Navigation } from "swiper/modules";
+import HistorySkeleton from "../Skeletons/HistorySkeleton";
 
 export default function App() {
   const [isWideScreen, setIsWideScreen] = useState(false);
   const [slidesPerView, setSlidesPerView] = useState(7.2);
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    setIsLoading(true);
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
   useEffect(() => {
     const handleResize = () => {
       setIsWideScreen(window.innerWidth > 520);
@@ -46,7 +56,15 @@ export default function App() {
         >
           {historySlide.map((el) => (
             <SwiperSlide key={el.id}>
-              <Slide img={el.img} prev={el.prev} title={el.title} />
+              {isLoading ? (
+                [...new Array(1)].map((_, i) => (
+                  <div className="historySkeleton">
+                    <HistorySkeleton key={i} />
+                  </div>
+                ))
+              ) : (
+                <Slide img={el.img} prev={el.prev} title={el.title} />
+              )}
             </SwiperSlide>
           ))}
         </Swiper>
