@@ -6,7 +6,6 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { HiDotsHorizontal } from "react-icons/hi";
 import { GoArrowLeft } from "react-icons/go";
 import { chatsList } from "../../assets/Chats/chatsList";
-import HeaderTitleSKeleton from "../Skeletons/HeaderTitleSKeleton";
 import HeaderListSkeleton from "../Skeletons/HeaderListSkeleton";
 
 const HeaderMobile = () => {
