@@ -135,3 +135,9 @@
 .servicesSkeleton {
   margin-left: -10px;
 }
+.notificationsSkeleton:first-child {
+  margin-top: 100px;
+}
+.notificationsSkeleton {
+  margin: 10px 0;
+}
