@@ -56,15 +56,9 @@ const HeaderMobile = () => {
       }
     >
       <div className={styles.head}>
-        {isLoading
-          ? [...new Array(1)].map((_, i) => (
-              <div className="headerSkeleton">
-                <HeaderTitleSKeleton key={i} />
-              </div>
-            ))
-          : listHeaderTitle.map(
-              (el) => path === el.link && <span key={el.id}>{el.title}</span>
-            )}
+        {listHeaderTitle.map(
+          (el) => path === el.link && <span key={el.id}>{el.title}</span>
+        )}
         {path.startsWith("/image/") && (
           <div>
             <span onClick={() => navigate(-1)} className={styles.back}>
@@ -73,7 +67,7 @@ const HeaderMobile = () => {
           </div>
         )}
         <div className={styles.icons}>
-          {path === "/groups" && !isLoading && (
+          {path === "/groups" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -96,7 +90,7 @@ const HeaderMobile = () => {
               </div>
             </>
           )}
-          {path === "/post-comments" && !isLoading && (
+          {path === "/post-comments" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -104,7 +98,7 @@ const HeaderMobile = () => {
               <span>Запись на стене</span>
             </>
           )}
-          {path === "/im" && !isLoading && (
+          {path === "/im" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -112,7 +106,7 @@ const HeaderMobile = () => {
               <span>Чаты</span>
             </>
           )}
-          {path === "/market" && !isLoading && (
+          {path === "/market" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>
                 <GoArrowLeft className={styles.iconBack} />
@@ -135,25 +129,25 @@ const HeaderMobile = () => {
               </div>
             </>
           )}
-          {path === "/friends" && !isLoading && (
+          {path === "/friends" && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Все друзья</span>
             </span>
           )}
-          {path === "/help" && !isLoading && (
+          {path === "/help" && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Помощь</span>
             </span>
           )}
-          {path === "/audio" && !isLoading && (
+          {path === "/audio" && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span> Моя музыка</span>
             </span>
           )}
-          {path === "/photos" && !isLoading && (
+          {path === "/photos" && (
             <span onClick={() => navigate(-1)} className={styles.back}>
               <GoArrowLeft className={styles.iconBack} />
               <span>Мои фотографии</span>
