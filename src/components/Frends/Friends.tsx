@@ -52,25 +52,34 @@ const Friends = () => {
           <IoMdClose className={styles.clearIcon} onClick={handleClearInput} />
         )}
       </div>
-      {friendsList.map((el: FriendsType) => (
-        <div className={styles.friends} key={el.id}>
-          <div className={styles.friendsTop}>
-            {isLoading ? <FriedsSkeleton /> : <img src={el.img} alt="img" />}
-            {!isLoading && (
-              <span>
-                {el.lastname} {el.firstname}
-              </span>
-            )}
+      {friendsList
+        .filter((el) => {
+          if (
+            el.lastname.toLowerCase().includes(inputValue.toLowerCase()) ||
+            el.firstname.toLowerCase().includes(inputValue.toLowerCase())
+          ) {
+            return true;
+          } else false;
+        })
+        .map((el: FriendsType) => (
+          <div className={styles.friends} key={el.id}>
+            <div className={styles.friendsTop}>
+              {isLoading ? <FriedsSkeleton /> : <img src={el.img} alt="img" />}
+              {!isLoading && (
+                <span>
+                  {el.lastname} {el.firstname}
+                </span>
+              )}
+            </div>
+            <Link to={`/im/${el.id}`}>
+              {isLoading ? (
+                <FriedsSkeletonIcon />
+              ) : (
+                <LuMessageCircle className={styles.icon} />
+              )}
+            </Link>
           </div>
-          <Link to={`/im/${el.id}`}>
-            {isLoading ? (
-              <FriedsSkeletonIcon />
-            ) : (
-              <LuMessageCircle className={styles.icon} />
-            )}
-          </Link>
-        </div>
-      ))}
+        ))}
     </div>
   );
 };

@@ -51,23 +51,29 @@ const Chats = () => {
       </div>
       {isLoading
         ? [...new Array(11)].map((_, i) => <ChatSkeleton key={i} />)
-        : chatsList.map((el: ChatsType) => (
-            <Link to={`/im/${el.id}`} key={el.id} className={styles.link}>
-              <div className={styles.сhats}>
-                <img src={el.avatar} alt="img" />
-                <div className={styles.infoChat}>
-                  <span className={styles.name}>{el.name}</span>
-                  <span className={styles.msg}>
-                    {el.lastMessage
-                      ? el.lastMessage.length > 7
-                        ? `${el.lastMessage.slice(0, 35)}...`
-                        : el.lastMessage
-                      : "Здесь пока пусто"}
-                  </span>
+        : chatsList
+            .filter((el) => {
+              if (el.name.toLowerCase().includes(inputValue.toLowerCase())) {
+                return true;
+              } else false;
+            })
+            .map((el: ChatsType) => (
+              <Link to={`/im/${el.id}`} key={el.id} className={styles.link}>
+                <div className={styles.сhats}>
+                  <img src={el.avatar} alt="img" />
+                  <div className={styles.infoChat}>
+                    <span className={styles.name}>{el.name}</span>
+                    <span className={styles.msg}>
+                      {el.lastMessage
+                        ? el.lastMessage.length > 7
+                          ? `${el.lastMessage.slice(0, 35)}...`
+                          : el.lastMessage
+                        : "Здесь пока пусто"}
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
     </div>
   );
 };
