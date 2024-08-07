@@ -81,7 +81,7 @@ const Profile = () => {
                 <img src={"image.png"} alt="" />
               </div>
               <div className={styles.info}>
-                <span>{"Ali"}</span>
+                <span>{"Алиюсуф Хадиев "}</span>
                 <p>{"12:12"}</p>
               </div>
             </div>
@@ -99,10 +99,10 @@ const Profile = () => {
           </div>
         )}
         <div className={styles.body}>
-          <p className={styles.title}>{"Мой фейковый пост"}</p>
+          <p className={styles.title}>{" Lexus LX 570 ♥"}</p>
           <img
             src={
-              "https://i.pinimg.com/564x/f3/f1/d1/f3f1d1828a95ab4b135a129e85d18030.jpg"
+              "https://i.pinimg.com/564x/08/a4/18/08a418999a88d1548c59f87d42528e83.jpg"
             }
             alt="img"
             className={styles.img}
