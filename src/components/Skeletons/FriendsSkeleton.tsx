@@ -25,6 +25,6 @@ export const FriedsSkeletonIcon = () => (
     backgroundColor="#2c2c2c"
     foregroundColor="#d3d3d3"
   >
-    <rect x="3" y="15" rx="3" ry="3" width="41" height="31" />
+    <rect x="3" y="15" rx="3" ry="3" width="33" height="22" />
   </ContentLoader>
 );

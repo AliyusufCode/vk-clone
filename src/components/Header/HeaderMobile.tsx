@@ -97,6 +97,14 @@ const HeaderMobile = () => {
               <span>Запись на стене</span>
             </>
           )}
+          {path === "/profile" && (
+            <>
+              <span onClick={() => navigate(-1)} className={styles.back}>
+                <GoArrowLeft className={styles.iconBack} />
+              </span>
+              <span>Username</span>
+            </>
+          )}
           {path === "/im" && (
             <>
               <span onClick={() => navigate(-1)} className={styles.back}>

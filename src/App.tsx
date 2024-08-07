@@ -29,6 +29,7 @@ import { musicList } from "./assets/Music/musicList";
 import MusicActive from "./components/MusicActive/MusicActive";
 import { useAudioPlayer } from "./utils/music";
 import PostComments from "./components/PostComments/PostComments";
+import Profile from "./components/Profile/Profile";
 type MusicType = {
   image?: string;
   name: string;
@@ -141,6 +142,7 @@ function App() {
             <Route path="/friends" element={<Friends />} />
             <Route path="/groups" element={<Groups />} />
             <Route path="/clip" element={<Empty />} />
+            <Route path="/profile" element={<Profile />} />
             <Route
               path="/audio"
               element={

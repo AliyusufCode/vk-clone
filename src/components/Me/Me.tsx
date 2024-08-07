@@ -12,16 +12,18 @@ const Me = () => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
-        <div className={styles.profile}>
-          <span className={styles.layoutProfile}>
-            <img src={"image.png"} alt="img" className={styles.img} />
-            <div className={styles.infoChat}>
-              <span className={styles.name}>Алиюсуф Хадиев</span>
-              <span className={styles.msg}>Перейти в профиль</span>
-            </div>
-          </span>
-          <MdOutlineKeyboardArrowRight className={styles.icon} />
-        </div>
+        <Link to={"/profile"}>
+          <div className={styles.profile}>
+            <span className={styles.layoutProfile}>
+              <img src={"image.png"} alt="img" className={styles.img} />
+              <div className={styles.infoChat}>
+                <span className={styles.name}>Алиюсуф Хадиев</span>
+                <span className={styles.msg}>Перейти в профиль</span>
+              </div>
+            </span>
+            <MdOutlineKeyboardArrowRight className={styles.icon} />
+          </div>
+        </Link>
         <div className={styles.lists}>
           {mobileList.map((el: MeProps) => (
             <Link to={el.link} className={styles.link} key={el.id}>
